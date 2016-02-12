@@ -38,6 +38,21 @@
   "consultant": {
     "productCode": "3289",
     "productName": "Turbo Upgrade-Internet",
+    "person": {
+      "personCode": "aef1",
+      "lastName": "Gekko",
+      "firstName": " Gordon",
+      "address": {
+        "street": "1 Wall Street",
+        "city": "New York",
+        "state": "NY",
+        "zip": "10005-0012",
+        "country": "USA"
+      },
+      "email": [
+        "gekko@crazy.net"
+      ]
+    },
     "serviceFee": "25.00"
   }
 }
@@ -45,6 +60,22 @@
   "consultant": {
     "productCode": "782g",
     "productName": "Home Wifi Setup",
+    "person": {
+      "personCode": "321nd",
+      "lastName": "Thotroy",
+      "firstName": " William",
+      "address": {
+        "street": "1060 West Addison Street",
+        "city": "Chicago",
+        "state": "IL",
+        "zip": "60613",
+        "country": "USA"
+      },
+      "email": [
+        "willth@doctors.com",
+        "wth@who.com"
+      ]
+    },
     "serviceFee": "150.00"
   }
 }

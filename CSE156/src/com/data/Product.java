@@ -1,6 +1,6 @@
 package com.data;
 
-public class Product {
+public class Product extends Person{
 
 	private Equipment equipment;
 	private Service service;

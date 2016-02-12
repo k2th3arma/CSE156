@@ -1,6 +1,6 @@
 package com.data;
 
-public class Person {
+public class Person implements Invoice{
 	private String personCode;
 	private String lastName;
 	private String firstName;
@@ -14,6 +14,9 @@ public class Person {
 		this.firstName = firstName;
 		this.address = address;
 		this.email = email;
+	}
+	public Person(){
+		super();
 	}
 	
 	//Setters and Getters
@@ -58,4 +61,7 @@ public class Person {
 	}
 	
 	//Other Methods...
+	public Service getService() {
+		return null;
+	}
 }

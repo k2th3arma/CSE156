@@ -1,17 +1,20 @@
 package com.data;
 
-public class Consultant {
+public class Consultant extends Person{
 	private String productCode;
 	private String productName;
-	private Person person;
+	//private Person person;
 	private String serviceFee;
 	
 	//Constructors
 	public Consultant(String productCode, String productName, Person person, String serviceFee) {
 		this.productCode = productCode;
 		this.productName = productName;
-		this.person = person;
+		//person = Consultant(getPersonCode(), getLastName(), getFirstName(), getAddress(), getEmail());
 		this.serviceFee = serviceFee;
+	}
+	public Consultant(String personCode, String lastName, String firstName, Address address, String[] email) {
+		super(personCode, lastName, firstName, address, email);
 	}
 	
 	//Getters and Setters
@@ -30,13 +33,13 @@ public class Consultant {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-	public Person getPerson() {
-		return person;
+	public com.data.Person Person() {
+		return null;
 	}
 
-	public void setPerson(Person person) {
-		this.person = person;
-	}
+//	public void setPerson(Person person) {
+//		this.person = person;
+//	}
 
 	public String getServiceFee(){
 		return this. serviceFee;
