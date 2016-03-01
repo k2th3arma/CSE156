@@ -8,6 +8,19 @@ public class Business extends Customer{
 
 	}
 
+	
+	@Override
+	public double getTax() {
+		
+		return .07;
+	}
+
+	@Override
+	public double compliaceFee() {
+		
+		return 0;
+	}
+
 	//Getters and Setters
 
 	//Other Methods...

@@ -18,38 +18,38 @@ import com.fileWriter.XMLWriter;
 
 public class DataTransfer {
 
-	public static void main(String[] args) {
-			
-		// Create a FlatFileReader object
-		FileReader fp = new FileReader();
-
-		List<Person> personList = fp.readPersons();
-		List<Invoice> invoiceList = fp.readInvoice();
-			
-		// Write Person ArrayList into a Json file
-		JsonWriter jWriter = new JsonWriter();
-		jWriter.jsonPerson(personList);
-			
-		// Write Person ArrayList into an XML file
-		XMLWriter xmlWriter = new XMLWriter();
-		xmlWriter.xmlPerson(personList);
-		
-		List<Customer> customerList = fp.readCustomer();
-				
-		// Write Person ArrayList into a Json file
-		jWriter.jsonCustomer(customerList);
-				
-		// Write Person ArrayList into an XML file
-		xmlWriter.xmlCustomer(customerList);
-
-		List<Product> productList = fp.readProduct();
-					
-		// Write Person ArrayList into a Json file
-		jWriter.jsonProduct(productList);
-					
-		// Write Person ArrayList into an XML file
-		xmlWriter.xmlProduct(productList); 
-		 
-		}
+//	public static void main(String[] args) {
+//			
+//		// Create a FlatFileReader object
+//		FileReader fp = new FileReader();
+//
+//		List<Person> personList = fp.readPersons();
+//		List<Invoice> invoiceList = fp.readInvoice();
+//			
+//		// Write Person ArrayList into a Json file
+//		JsonWriter jWriter = new JsonWriter();
+//		jWriter.jsonPerson(personList);
+//			
+//		// Write Person ArrayList into an XML file
+//		XMLWriter xmlWriter = new XMLWriter();
+//		xmlWriter.xmlPerson(personList);
+//		
+//		List<Customer> customerList = fp.readCustomer();
+//				
+//		// Write Person ArrayList into a Json file
+//		jWriter.jsonCustomer(customerList);
+//				
+//		// Write Person ArrayList into an XML file
+//		xmlWriter.xmlCustomer(customerList);
+//
+//		List<Product> productList = fp.readProduct();
+//					
+//		// Write Person ArrayList into a Json file
+//		jWriter.jsonProduct(productList);
+//					
+//		// Write Person ArrayList into an XML file
+//		xmlWriter.xmlProduct(productList); 
+//		 
+//		}
 	}
 

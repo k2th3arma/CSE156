@@ -26,6 +26,7 @@ public class Equipment extends Product{
 	public void setFee(String fee) {
 		this.fee = fee;
 	}
-
+	
+	
 	//Other Methods...
 }

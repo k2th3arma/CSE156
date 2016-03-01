@@ -50,7 +50,14 @@ public abstract class Customer {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-
+	
+	public abstract double getTax();
+	
+	
+	
+	public abstract double compliaceFee();
+	
+	
 	
 	//Other Methods...
 }

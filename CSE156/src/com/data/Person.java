@@ -1,6 +1,6 @@
 package com.data;
 
-public class Person {
+public class Person  {
 	private String personCode;
 	private String lastName;
 	private String firstName;
@@ -63,5 +63,9 @@ public class Person {
 	//Other Methods...
 	public Service getService() {
 		return null;
+	}
+	
+	public String getName(){
+		return this.lastName + "," + this.firstName; 
 	}
 }
