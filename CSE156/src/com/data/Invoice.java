@@ -1,4 +1,6 @@
 package com.data;
+import java.io.PrintWriter;
+import java.io.*;
 
 public class Invoice {
 	private String invoiceCode;
@@ -12,7 +14,7 @@ public class Invoice {
 		this.customerCode = customerCode;
 		this.invoiceDate = invoiceDate;
 		this.salesPerson = salesPerson;
-		this.productData = productData;
+		this.productData= productData;
 	}
 
 	public String getInvoiceCode() {
@@ -55,6 +57,9 @@ public class Invoice {
 		this.productData = productData;
 	}
 	
+	
+		
+		
 	
 	
 }

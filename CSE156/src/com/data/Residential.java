@@ -4,8 +4,8 @@ public class Residential extends Customer{
 
 
 	//Constructors
-	public Residential(String customerCode, Person person, String customerName, Address address) {
-		super(customerCode, person, customerName, address);
+	public Residential(String customerCode, String customerType, Person person, String customerName, Address address) {
+		super(customerCode, customerType, person, customerName, address);
 		
 	}
 
@@ -19,6 +19,12 @@ public class Residential extends Customer{
 	public double compliaceFee() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "(Residential)";
 	}
 	
 	//Setters and Getters

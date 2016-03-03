@@ -100,13 +100,13 @@ public class FileReader {
 					switch(customerType){
 						case "B":
 							
-							business = new Business(customerCode, person, customerName, address);
+							business = new Business(customerCode, customerType, person, customerName, address);
 							customerList.add(business);
 							
 							break;
 						case "R":
 							
-							residential = new Residential(customerCode, person, customerName, address);
+							residential = new Residential(customerCode, customerType, person, customerName, address);
 							customerList.add(residential);
 							break;
 					}

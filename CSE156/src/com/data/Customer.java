@@ -2,13 +2,18 @@ package com.data;
 
 public abstract class Customer {
 	private String customerCode;
+	private String customerType;
 	private Person person;
 	private String customerName;
 	private Address address;
 	
+	
+	
+
 	//Constructor
-	public Customer(String customerCode, Person person, String customerName, Address address) {
+	public Customer(String customerCode, String customerType, Person person, String customerName, Address address) {
 		this.customerCode = customerCode;
+		this.customerType=customerType;
 		this.person = person;
 		this.customerName = customerName;
 		this.address = address;
@@ -25,6 +30,13 @@ public abstract class Customer {
 
 	public void setCustomerCode(String customerCode) {
 		this.customerCode = customerCode;
+	}
+	public String getCustomerType() {
+		return customerType;
+	}
+
+	public void setCustomerType(String customerType) {
+		this.customerType = customerType;
 	}
 
 	public Person getPerson() {
@@ -53,7 +65,7 @@ public abstract class Customer {
 	
 	public abstract double getTax();
 	
-	
+	public abstract String getType();
 	
 	public abstract double compliaceFee();
 	

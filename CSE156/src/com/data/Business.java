@@ -3,11 +3,12 @@ package com.data;
 public class Business extends Customer{
 	
 	//Constructor
-	public Business(String customerCode, Person person, String customerName, Address address) {
-		super(customerCode, person, customerName, address);
+	public Business(String customerCode, String customerType, Person person, String customerName, Address address) {
+		super(customerCode, customerType, person, customerName, address);
 
 	}
 
+	
 	
 	@Override
 	public double getTax() {
@@ -19,6 +20,14 @@ public class Business extends Customer{
 	public double compliaceFee() {
 		
 		return 0;
+	}
+
+
+
+	@Override
+	public String getType() {
+		
+		return "(Business)";
 	}
 
 	//Getters and Setters

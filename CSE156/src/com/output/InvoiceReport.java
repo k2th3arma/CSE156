@@ -75,44 +75,94 @@ public class InvoiceReport {
 			
 			sb.append(String.format("%-12s %-30s %-30s %-9s %9s %9s %9s\n", 
 					"Invoice", "Customer", "Salesperson", "SubTotal", "Fees", "Taxes", "Total"));
-			
+	//invoice number 
 			for(Invoice i : invoiceList) {
-		//format their information
+		//To retrive the customer infor
 				Customer cust = null;
-				//Customer per=null;
 				for(Customer c : customerList) {
 					if (c.getCustomerCode().equals(i.getCustomerCode())) {
 						cust = c;
-//						if(c.getPerson().equals(i.getSalesPerson())){
-//							per=c;
-//						}
 					}
-				
 				}
-			
+		//Find the sales persons 	
 				Person per = null;
 			for(Person p : personList){
 				if (p.getPersonCode().equals(i.getSalesPerson().getPersonCode())){
 						per=p;
 				}
-				
 					}
 				sb.append(String.format("%-12s %-30s %-30s %-9s %9s %9s %9s\n",
-					 i.getInvoiceCode(), cust.getCustomerName(), per.getName(), "null", "null", "null", "null")); //TODO: replace these
+					 i.getInvoiceCode(), cust.getCustomerName(), per.getName(), "Null", "null", "null", "null")); //TODO: replace these
+			
+			
+			}
+
+			outputStream.println(sb);
+			outputStream.println("================================");
+			outputStream.println("Invoice Detail Report");
+			outputStream.println("================================");
+		//second	
+			StringBuilder nb = new StringBuilder();
+			nb.append(String.format("%-30s %-30s %-9s %9s %9s %9s\n", 
+			"Code", "Item", "SubTotal", "Taxes", "Fees", "Total"));
+
+			for(Invoice inv : invoiceList) {
+
+				Customer cust = null;
+				//Customer per=null;
+				for(Customer c : customerList) {
+					if (c.getCustomerCode().equals(inv.getCustomerCode())) {
+						cust = c;
+					}
+				}
+				Person aPerson = null;
+				for(Person p : personList){
+					if (p.getPersonCode().equals(inv.getSalesPerson().getPersonCode())){
+							aPerson=p;
+					}
+				}
+				
+				Product pro =null;
+				for(Product pd : productList){
+					if (pd.getProductCode().equals(inv.getProductData())){
+						pro=pd;
+						break;
+					}
+				}
+				
+				
+				outputStream.println();
+				outputStream.println();
+				outputStream.println("----------------------------------");
+				outputStream.println("Invoice " + inv.getInvoiceCode());
+				outputStream.println(inv.getInvoiceDate());
+				outputStream.println("----------------------------------");
+				outputStream.println("Salesperson: " + aPerson.getName());
+				outputStream.println("Customer: ");
+				outputStream.println("           " + cust.getCustomerName() + " (" + cust.getCustomerCode() + ")");
+				outputStream.println("           " + cust.getType());
+				outputStream.println("           " + cust.getPerson().getName());
+				outputStream.println("           " + cust.getAddress().getStreet());
+				outputStream.println("           " + cust.getAddress().getCity() + "," + cust.getAddress().getState() + " " + cust.getAddress().getZip() + " " + cust.getAddress().getCountry());
+				outputStream.println("------------------------------------");
+				
+				
+				nb.append(String.format("%-30s %-30s %-9s %9s %9s %9s\n",
+						inv.getProductData(), "bbukk", "Null", "null", "null", "null")); //TODO: replace these
+				
+				
+				outputStream.println(nb);
 				
 			}
-	 
-
+			//outputStream.println(nb);
+			//outputStream.println(nb);
 			
-			outputStream.println(sb);
 			outputStream.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 		
-//		for(int a=0; a < invoiceList.size(); a++){
-//			
-//			
+
  
 		
 		

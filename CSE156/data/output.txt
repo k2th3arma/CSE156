@@ -1,8 +1,85 @@
 INVOICE SUMMARY REPORT
 ========================================
 Invoice      Customer                       Salesperson                    SubTotal       Fees     Taxes     Total
-INV001       Stark Industries               Eccleston, Chris               null           null      null      null
-INV002       University of Nebraska-Lincoln Smith, Matt                    null           null      null      null
-INV003       Vandelay Apartments            Castro, David                  null           null      null      null
-INV004       Stark Industries               Castro, David                  null           null      null      null
+INV001       Stark Industries               Eccleston, Chris               Null           null      null      null
+INV002       University of Nebraska-Lincoln Smith, Matt                    Null           null      null      null
+INV003       Vandelay Apartments            Castro, David                  Null           null      null      null
+INV004       Stark Industries               Castro, David                  Null           null      null      null
+
+================================
+Invoice Detail Report
+================================
+
+
+----------------------------------
+Invoice INV001
+2016-02-01
+----------------------------------
+Salesperson: Eccleston, Chris
+Customer: 
+           Stark Industries (C002)
+           (Business)
+           McCoy,Sylvester
+           912 E Kirwin Ave
+            Salina, KS  67401 USA
+------------------------------------
+Code                           Item                           SubTotal      Taxes      Fees     Total
+[Ljava.lang.String;@3d4eac69   bbukk                          Null           null      null      null
+
+
+
+----------------------------------
+Invoice INV002
+2016-01-19
+----------------------------------
+Salesperson: Smith, Matt
+Customer: 
+           University of Nebraska-Lincoln (C001)
+           (Business)
+           Earl, Holley
+           259 Avery Hall
+           Lincoln,NE 68588 USA
+------------------------------------
+Code                           Item                           SubTotal      Taxes      Fees     Total
+[Ljava.lang.String;@3d4eac69   bbukk                          Null           null      null      null
+[Ljava.lang.String;@42a57993   bbukk                          Null           null      null      null
+
+
+
+----------------------------------
+Invoice INV003
+2015-11-23
+----------------------------------
+Salesperson: Castro, David
+Customer: 
+           Vandelay Apartments (C005)
+           (Residential)
+           Tennant, Kaylee
+           1060 West Addison
+           Chicago,IL 60601 USA
+------------------------------------
+Code                           Item                           SubTotal      Taxes      Fees     Total
+[Ljava.lang.String;@3d4eac69   bbukk                          Null           null      null      null
+[Ljava.lang.String;@42a57993   bbukk                          Null           null      null      null
+[Ljava.lang.String;@75b84c92   bbukk                          Null           null      null      null
+
+
+
+----------------------------------
+Invoice INV004
+2016-03-01
+----------------------------------
+Salesperson: Castro, David
+Customer: 
+           Stark Industries (C002)
+           (Business)
+           McCoy,Sylvester
+           912 E Kirwin Ave
+            Salina, KS  67401 USA
+------------------------------------
+Code                           Item                           SubTotal      Taxes      Fees     Total
+[Ljava.lang.String;@3d4eac69   bbukk                          Null           null      null      null
+[Ljava.lang.String;@42a57993   bbukk                          Null           null      null      null
+[Ljava.lang.String;@75b84c92   bbukk                          Null           null      null      null
+[Ljava.lang.String;@6bc7c054   bbukk                          Null           null      null      null
 
