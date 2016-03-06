@@ -4,7 +4,16 @@ public class Service extends Product{
 
 	private String activationFee;
 	private String annualFee;
+	private String serviceCode;
 	
+	public String getServiceCode() {
+		return serviceCode;
+	}
+
+	public void setServiceCode(String serviceCode) {
+		this.serviceCode = serviceCode;
+	}
+
 	//Constructor
 	public Service(String productCode, String productName, String activationFee, String annualFee) {
 		super(productCode, productName);

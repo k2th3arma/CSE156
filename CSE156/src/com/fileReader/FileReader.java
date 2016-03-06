@@ -3,6 +3,7 @@ package com.fileReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.data.Address;
@@ -140,14 +141,16 @@ public class FileReader {
 					Service service			 	= null;
 					Consultant consultation 	= null;
 					Product product 			= null;
-					
+					String productType 			= null;
 					switch(data[1]){
 						case "E":
+							
 							String productCode 	= data[0];
 							String productName 	= data[2];
 							fee	   				= data[3];
 							
 							equipment = new Equipment(productCode, productName, fee);
+							equipment.setProductType("E");
 							productList.add(equipment);
 							
 							break;
@@ -158,6 +161,7 @@ public class FileReader {
 							 String annualFee 	= data[4];
 							 
 							 service = new Service(productCode, productName, activationFee, annualFee);
+							 service.setProductType("S");
 							 productList.add(service);
 							 
 							 break;
@@ -176,12 +180,10 @@ public class FileReader {
 								}
 							}
 							 consultation = new Consultant(productCode, productName, person, serviceFee);
-							 productList.add(consultation);
-							 
+							 consultation.setProductType("C");
+							 productList.add(consultation); 
 							 break;
 					}
-					
-
 				}
 				sc.close();
 				return productList;
@@ -199,8 +201,7 @@ public class FileReader {
 				sc.nextLine(); 
 				
 				 invoiceList = new ArrayList<Invoice>();
-				// Invoice invoice = null;
-				 
+			
 				while(sc.hasNext()) {
 					String line 			= sc.nextLine(); 
 					String data[] 			= line.split(";");
@@ -209,13 +210,47 @@ public class FileReader {
 					String customerCode		= data[1];
 					String invoiceDate		= data[2];
 					String salesPerson      = data[3];
-					String productData[]    = data[4].split(",");
-					String product;
+			
+					String productData[]   = data[4].split(",");
+					String product=null;
 					Person person = null;
 					
-					for(int i = 0; i < productData.length; ++i){
-						product = productData[i];
-					}
+					ArrayList<Product> productList = readProduct();
+					
+						//Emety array list 
+					 ArrayList<Product> invoiceProduct= new ArrayList<Product>();
+					
+					 for(int i = 0; i < productData.length; ++i){
+						String splitProducts []=  productData[i].split(":");
+						
+						for(Product pd : productList){
+							if (pd.getProductCode().equals(splitProducts[0])){
+								
+							//System.out.println(pd.getProductCode());
+							//invoiceProduct.add(pd);
+							
+							
+							 if(pd.getProductType().equals("E")){
+								Equipment e  = (Equipment) pd;
+								e.setNumProduct(splitProducts[1]);
+								invoiceProduct.add(e);
+								//System.out.println(invoiceProduct);
+							}
+							else if (pd.getProductType().equals("S")){
+								Service s= (Service) pd;
+								s.setServiceCode(splitProducts[1]);
+								invoiceProduct.add(s);
+							}	
+							else if (pd.getProductType().equals("C")){
+								Consultant c =(Consultant) pd;
+								c.setConsultantType(splitProducts[1]);
+								invoiceProduct.add(c);
+						
+						}
+							// invoiceProduct.add(pd);
+						}
+					 }
+					 }
 					ArrayList<Person> persons = readPersons();
 				   	 
 					for(Person pers: persons){
@@ -223,11 +258,12 @@ public class FileReader {
 							person = pers;
 						}
 					}
-					Invoice invoice = new Invoice(invoiceCode, customerCode, invoiceDate, person, productData);
-
-
+					Invoice invoice = new Invoice(invoiceCode, customerCode, invoiceDate, person, invoiceProduct);
+				
 					invoiceList.add(invoice);
+				//break;
 				}
+			
 				sc.close();
 				return invoiceList;
 			} catch (FileNotFoundException e) {
@@ -236,5 +272,4 @@ public class FileReader {
 			}	
 		}
 	
-
 }

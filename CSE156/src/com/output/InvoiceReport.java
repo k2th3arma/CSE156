@@ -18,6 +18,7 @@ public class InvoiceReport {
 	private List<Customer> customers;
 	private List<Product> products;
 	
+
 	public List<Person> getPersons() {
 		return persons;
 	}
@@ -45,13 +46,11 @@ public class InvoiceReport {
 		this.persons=persons;
 		this.customers = customers;
 		this.products=products;
+
 		
 	}
 	
-
 	public static void main(String[] args) {
-		
-		
 		
 		// Create a FlatFileReader object
 		FileReader fp = new FileReader();
@@ -64,6 +63,7 @@ public class InvoiceReport {
 		
 		List<Invoice> invoiceList = fp.readInvoice();
 		
+		//List<Product> invoiceProduct = fp.readProduct();
 		
 		String fileName= "data/output.txt";
 		try{
@@ -78,6 +78,7 @@ public class InvoiceReport {
 	//invoice number 
 			for(Invoice i : invoiceList) {
 		//To retrive the customer infor
+				
 				Customer cust = null;
 				for(Customer c : customerList) {
 					if (c.getCustomerCode().equals(i.getCustomerCode())) {
@@ -91,23 +92,27 @@ public class InvoiceReport {
 						per=p;
 				}
 					}
+			
+			
 				sb.append(String.format("%-12s %-30s %-30s %-9s %9s %9s %9s\n",
 					 i.getInvoiceCode(), cust.getCustomerName(), per.getName(), "Null", "null", "null", "null")); //TODO: replace these
-			
-			
+				
 			}
+	
 
 			outputStream.println(sb);
 			outputStream.println("================================");
 			outputStream.println("Invoice Detail Report");
 			outputStream.println("================================");
-		//second	
+		
+			//second	
+		
+			
 			StringBuilder nb = new StringBuilder();
 			nb.append(String.format("%-30s %-30s %-9s %9s %9s %9s\n", 
 			"Code", "Item", "SubTotal", "Taxes", "Fees", "Total"));
 
 			for(Invoice inv : invoiceList) {
-
 				Customer cust = null;
 				//Customer per=null;
 				for(Customer c : customerList) {
@@ -121,20 +126,19 @@ public class InvoiceReport {
 							aPerson=p;
 					}
 				}
+//				Product pro =null;
+//				for(Product pd : productList){
+//					if (pd.getProductCode().equals(inv.getProductData())){
+//						pro=pd;
+//						//break;
+//					}
+//				}
 				
-				Product pro =null;
-				for(Product pd : productList){
-					if (pd.getProductCode().equals(inv.getProductData())){
-						pro=pd;
-						break;
-					}
-				}
 				
-				
-				outputStream.println();
-				outputStream.println();
+				outputStream.println("");
+				outputStream.println("");
 				outputStream.println("----------------------------------");
-				outputStream.println("Invoice " + inv.getInvoiceCode());
+				outputStream.println("Invoice: " + inv.getInvoiceCode());
 				outputStream.println(inv.getInvoiceDate());
 				outputStream.println("----------------------------------");
 				outputStream.println("Salesperson: " + aPerson.getName());
@@ -145,27 +149,27 @@ public class InvoiceReport {
 				outputStream.println("           " + cust.getAddress().getStreet());
 				outputStream.println("           " + cust.getAddress().getCity() + "," + cust.getAddress().getState() + " " + cust.getAddress().getZip() + " " + cust.getAddress().getCountry());
 				outputStream.println("------------------------------------");
+			
+				
+				//for(Product i : invoiceProduct) {
+				
+				//Product ped =null;
+				for(Product pd : inv.getProductData()){
+					
+					
+					nb.append(String.format("%-30s %-30s %-9s %9s %9s %9s\n",
+							pd.getProductCode(), "bbukk", "Null", "null", "null", "null"));
 				
 				
-				nb.append(String.format("%-30s %-30s %-9s %9s %9s %9s\n",
-						inv.getProductData(), "bbukk", "Null", "null", "null", "null")); //TODO: replace these
-				
-				
+		//	outputStream.println(nb);
+				}
 				outputStream.println(nb);
-				
 			}
-			//outputStream.println(nb);
-			//outputStream.println(nb);
 			
 			outputStream.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
-
- 
-		
-		
 		
 	}
 }

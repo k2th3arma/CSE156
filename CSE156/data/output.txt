@@ -12,7 +12,7 @@ Invoice Detail Report
 
 
 ----------------------------------
-Invoice INV001
+Invoice: INV001
 2016-02-01
 ----------------------------------
 Salesperson: Eccleston, Chris
@@ -24,12 +24,12 @@ Customer:
             Salina, KS  67401 USA
 ------------------------------------
 Code                           Item                           SubTotal      Taxes      Fees     Total
-[Ljava.lang.String;@3d4eac69   bbukk                          Null           null      null      null
+b29e                           bbukk                          Null           null      null      null
 
 
 
 ----------------------------------
-Invoice INV002
+Invoice: INV002
 2016-01-19
 ----------------------------------
 Salesperson: Smith, Matt
@@ -41,13 +41,15 @@ Customer:
            Lincoln,NE 68588 USA
 ------------------------------------
 Code                           Item                           SubTotal      Taxes      Fees     Total
-[Ljava.lang.String;@3d4eac69   bbukk                          Null           null      null      null
-[Ljava.lang.String;@42a57993   bbukk                          Null           null      null      null
+b29e                           bbukk                          Null           null      null      null
+ff23                           bbukk                          Null           null      null      null
+3289                           bbukk                          Null           null      null      null
+1239                           bbukk                          Null           null      null      null
 
 
 
 ----------------------------------
-Invoice INV003
+Invoice: INV003
 2015-11-23
 ----------------------------------
 Salesperson: Castro, David
@@ -59,14 +61,17 @@ Customer:
            Chicago,IL 60601 USA
 ------------------------------------
 Code                           Item                           SubTotal      Taxes      Fees     Total
-[Ljava.lang.String;@3d4eac69   bbukk                          Null           null      null      null
-[Ljava.lang.String;@42a57993   bbukk                          Null           null      null      null
-[Ljava.lang.String;@75b84c92   bbukk                          Null           null      null      null
+b29e                           bbukk                          Null           null      null      null
+ff23                           bbukk                          Null           null      null      null
+3289                           bbukk                          Null           null      null      null
+1239                           bbukk                          Null           null      null      null
+ff23                           bbukk                          Null           null      null      null
+90fa                           bbukk                          Null           null      null      null
 
 
 
 ----------------------------------
-Invoice INV004
+Invoice: INV004
 2016-03-01
 ----------------------------------
 Salesperson: Castro, David
@@ -78,8 +83,13 @@ Customer:
             Salina, KS  67401 USA
 ------------------------------------
 Code                           Item                           SubTotal      Taxes      Fees     Total
-[Ljava.lang.String;@3d4eac69   bbukk                          Null           null      null      null
-[Ljava.lang.String;@42a57993   bbukk                          Null           null      null      null
-[Ljava.lang.String;@75b84c92   bbukk                          Null           null      null      null
-[Ljava.lang.String;@6bc7c054   bbukk                          Null           null      null      null
+b29e                           bbukk                          Null           null      null      null
+ff23                           bbukk                          Null           null      null      null
+3289                           bbukk                          Null           null      null      null
+1239                           bbukk                          Null           null      null      null
+ff23                           bbukk                          Null           null      null      null
+90fa                           bbukk                          Null           null      null      null
+782g                           bbukk                          Null           null      null      null
+3294                           bbukk                          Null           null      null      null
+3295                           bbukk                          Null           null      null      null
 

@@ -4,7 +4,18 @@ public class Consultant extends Product{
 
 	private Person person;
 	private String serviceFee;
+	private String ConsultantType;
 	
+	public String getConsultantType() {
+		return ConsultantType;
+	}
+
+
+	public void setConsultantType(String consultantType) {
+		ConsultantType = consultantType;
+	}
+
+
 	//Constructors
 	public Consultant(String productCode, String productName, Person person, String serviceFee) {
 		super(productCode, productName);

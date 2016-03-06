@@ -1,5 +1,6 @@
 package com.data;
 import java.io.PrintWriter;
+import java.util.List;
 import java.io.*;
 
 public class Invoice {
@@ -7,9 +8,9 @@ public class Invoice {
 	private String customerCode;
 	private String invoiceDate;
 	private Person salesPerson;
-	private String[] productData;
+	private List<Product> productData;
 	
-	public Invoice(String invoiceCode, String customerCode, String invoiceDate, Person salesPerson, String[] productData){
+	public Invoice(String invoiceCode, String customerCode, String invoiceDate, Person salesPerson, List<Product> productData){
 		this.invoiceCode = invoiceCode;
 		this.customerCode = customerCode;
 		this.invoiceDate = invoiceDate;
@@ -49,13 +50,18 @@ public class Invoice {
 		this.salesPerson = salesPerson;
 	}
 
-	public String[] getProductData() {
+	public List<Product> getProductData() {
 		return productData;
 	}
 
-	public void setProductData(String[] productData) {
+	public void setProductData(List<Product> productData) {
 		this.productData = productData;
 	}
+
+//	public Object getProductCode() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 	
 	
 		
