@@ -1,5 +1,7 @@
 package com.data;
 
+import org.joda.time.format.DateTimeFormatter;
+
 public class Equipment extends Product{
 
 	private String fee;
@@ -45,4 +47,36 @@ public class Equipment extends Product{
 		this.numProduct = numProduct;
 	}
 	//Other Methods...
+
+	@Override
+	public String getItems() {
+		
+		return getProductName() + "  (" + getNumProduct() + "  units at  " + getFee() + "/units)";
+	}
+
+	@SuppressWarnings("null")
+	@Override
+	public long getDays() {
+		// TODO Auto-generated method stub
+		return ((Long) null);
+	}
+
+	@Override
+	public long testDate() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getTotalFees() {
+		// TODO Auto-generated method stub
+		return "0.00";
+	}
+
+	@Override
+	public double getSubtotal() {
+		// TODO Auto-generated method stub
+		
+		return Double.parseDouble(getNumProduct()) * Double.parseDouble(getFee());
+	}
 }

@@ -1,11 +1,24 @@
 package com.data;
-
+import java.util.Calendar;
+import java.util.Date;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.Days;
+import org.joda.time.format.DateTimeFormat;
+import java.time.temporal.ChronoUnit;
+import java.time.LocalDate;
+import com.data.DateTime;
 public class Service extends Product{
 
 	private String activationFee;
 	private String annualFee;
 	private String serviceCode;
+	public String setNumProduct;
+	private String startDate;
+	private String endDate;
 	
+	private int numdays;
+	private long DAYS;
 	public String getServiceCode() {
 		return serviceCode;
 	}
@@ -45,6 +58,58 @@ public class Service extends Product{
 	public void setAnnualFee(String annualFee){
 		this.annualFee = annualFee;
 	}
+	public String getItems() {
+		// TODO Auto-generated method stub
+		return getProductName()+ "  (" + testDate() + " days at $" + getAnnualFee() + "/yr)" ;
+	}
+
+	public String getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+
+	public String getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+
+	@Override
+	public long getDays() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public long testDate() {
+
+		LocalDate dateBefore=LocalDate.parse(getStartDate());
+		LocalDate dateAfter=LocalDate.parse(getEndDate());
+		long daysBetween = ChronoUnit.DAYS.between(dateBefore, dateAfter);
+		return daysBetween +1;// TODO Auto-generated method stub
+	}
+
+	@Override
+	public String getTotalFees() {
+		// TODO Auto-generated method stub
+		return getActivationFee();
+	}
+
+	@Override
+	public double getSubtotal() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	
+
+	
 	
 	//Other Methods...
 }

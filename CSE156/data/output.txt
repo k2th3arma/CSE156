@@ -1,10 +1,10 @@
 INVOICE SUMMARY REPORT
 ========================================
 Invoice      Customer                       Salesperson                    SubTotal       Fees     Taxes     Total
-INV001       Stark Industries               Eccleston, Chris               Null           null      null      null
-INV002       University of Nebraska-Lincoln Smith, Matt                    Null           null      null      null
-INV003       Vandelay Apartments            Castro, David                  Null           null      null      null
-INV004       Stark Industries               Castro, David                  Null           null      null      null
+INV001     Stark Industries               Eccleston, Chris               Null           null      null      null
+INV002     University of Nebraska-Lincoln Smith, Matt                    Null           null      null      null
+INV003     Vandelay Apartments            Castro, David                  Null           null      null      null
+INV004     Stark Industries               Castro, David                  Null           null      null      null
 
 ================================
 Invoice Detail Report
@@ -23,8 +23,8 @@ Customer:
            912 E Kirwin Ave
             Salina, KS  67401 USA
 ------------------------------------
-Code                           Item                           SubTotal      Taxes      Fees     Total
-b29e                           bbukk                          Null           null      null      null
+Code       Item                                               SubTotal      Taxes      Fees     Total
+b29e       Satellite Reciever  (2  units at  2500.0/units)    5000.0            5      0.00      null
 
 
 
@@ -40,11 +40,10 @@ Customer:
            259 Avery Hall
            Lincoln,NE 68588 USA
 ------------------------------------
-Code                           Item                           SubTotal      Taxes      Fees     Total
-b29e                           bbukk                          Null           null      null      null
-ff23                           bbukk                          Null           null      null      null
-3289                           bbukk                          Null           null      null      null
-1239                           bbukk                          Null           null      null      null
+Code       Item                                               SubTotal      Taxes      Fees     Total
+ff23       Wireless5G Router  (25  units at  124.99/units)    3124.75           5      0.00      null
+3289       Turbo Upgrade-Internet 10 hours at $25.00          0.0               5       150      null
+1239       Digital Setup Box  (1  units at  200.00/units)     200.0             5      0.00      null
 
 
 
@@ -60,13 +59,9 @@ Customer:
            1060 West Addison
            Chicago,IL 60601 USA
 ------------------------------------
-Code                           Item                           SubTotal      Taxes      Fees     Total
-b29e                           bbukk                          Null           null      null      null
-ff23                           bbukk                          Null           null      null      null
-3289                           bbukk                          Null           null      null      null
-1239                           bbukk                          Null           null      null      null
-ff23                           bbukk                          Null           null      null      null
-90fa                           bbukk                          Null           null      null      null
+Code       Item                                               SubTotal      Taxes      Fees     Total
+ff23       Wireless5G Router  (10  units at  124.99/units)    1249.8999999999999         5      0.00      null
+90fa       Long Distance Service  (413 days at $12000.00/yr)  0.0               5   2000.00      null
 
 
 
@@ -82,14 +77,8 @@ Customer:
            912 E Kirwin Ave
             Salina, KS  67401 USA
 ------------------------------------
-Code                           Item                           SubTotal      Taxes      Fees     Total
-b29e                           bbukk                          Null           null      null      null
-ff23                           bbukk                          Null           null      null      null
-3289                           bbukk                          Null           null      null      null
-1239                           bbukk                          Null           null      null      null
-ff23                           bbukk                          Null           null      null      null
-90fa                           bbukk                          Null           null      null      null
-782g                           bbukk                          Null           null      null      null
-3294                           bbukk                          Null           null      null      null
-3295                           bbukk                          Null           null      null      null
+Code       Item                                               SubTotal      Taxes      Fees     Total
+782g       Home Wifi Setup 10 hours at $150.00                0.0               5       150      null
+3294       L2 Home Security  (731 days at $35000.00/yr)       0.0               5      0.00      null
+3295       Domain registration  (1055 days at $1200.00/yr)    0.0               5    350.00      null
 

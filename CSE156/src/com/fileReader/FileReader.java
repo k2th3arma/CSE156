@@ -215,42 +215,51 @@ public class FileReader {
 					String product=null;
 					Person person = null;
 					
-					ArrayList<Product> productList = readProduct();
+					
 					
 						//Emety array list 
 					 ArrayList<Product> invoiceProduct= new ArrayList<Product>();
 					
 					 for(int i = 0; i < productData.length; ++i){
+						ArrayList<Product> productList = readProduct();
 						String splitProducts []=  productData[i].split(":");
 						
-						for(Product pd : productList){
-							if (pd.getProductCode().equals(splitProducts[0])){
+						for(Product prod : productList){
+							if (prod.getProductCode().equals(splitProducts[0])){
 								
 							//System.out.println(pd.getProductCode());
 							//invoiceProduct.add(pd);
 							
 							
-							 if(pd.getProductType().equals("E")){
-								Equipment e  = (Equipment) pd;
+								if (prod.getProductType().equals("E")){
+								Equipment e  = (Equipment) prod;
 								e.setNumProduct(splitProducts[1]);
+								
 								invoiceProduct.add(e);
+								//break;
 								//System.out.println(invoiceProduct);
 							}
-							else if (pd.getProductType().equals("S")){
-								Service s= (Service) pd;
-								s.setServiceCode(splitProducts[1]);
+							else if (prod.getProductType().equals("S")){
+									
+								Service s= (Service) prod;
+								s.setNumProduct=" ";
+								s.setStartDate(splitProducts[1]);
+								s.setEndDate(splitProducts[2]);
 								invoiceProduct.add(s);
+								//break;
 							}	
-							else if (pd.getProductType().equals("C")){
-								Consultant c =(Consultant) pd;
-								c.setConsultantType(splitProducts[1]);
+							else if (prod.getProductType().equals("C")){
+								Consultant c =(Consultant) prod;
+								c.setHours(splitProducts[1]);
 								invoiceProduct.add(c);
-						
+						//break;
 						}
+								//System.out.println(invoiceProduct);
 							// invoiceProduct.add(pd);
 						}
 					 }
 					 }
+					 
 					ArrayList<Person> persons = readPersons();
 				   	 
 					for(Person pers: persons){
@@ -261,7 +270,7 @@ public class FileReader {
 					Invoice invoice = new Invoice(invoiceCode, customerCode, invoiceDate, person, invoiceProduct);
 				
 					invoiceList.add(invoice);
-				//break;
+				
 				}
 			
 				sc.close();

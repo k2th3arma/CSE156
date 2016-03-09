@@ -1,11 +1,12 @@
 package com.data;
-
+import org.joda.time.format.DateTimeFormatter;
 public abstract class Product {
 
 	protected String productCode;
 	protected String productName;
 	protected String productType;
 	
+
 	//Constructors
 	public Product(String productCode, String productName){
 		this.productCode = productCode;
@@ -41,8 +42,11 @@ public abstract class Product {
 		this.productName = productName;
 	}
 
-	
-	
+	abstract public String getTotalFees();
+	abstract public double getSubtotal();
+	 abstract public String getItems();
+	abstract public  long testDate();
+	 abstract public long getDays();
 	//Other Methods...
 }
 
