@@ -102,6 +102,7 @@ public class FileReader {
 						case "B":
 							
 							business = new Business(customerCode, customerType, person, customerName, address);
+							
 							customerList.add(business);
 							
 							break;

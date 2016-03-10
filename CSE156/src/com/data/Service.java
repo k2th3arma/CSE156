@@ -78,6 +78,12 @@ public class Service extends Product{
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
+	@Override
+
+	public double getSubtotal() {
+		double mid=(testDate()) ;
+		return   (mid/365) * Double.parseDouble(getAnnualFee());
+	}
 
 	@Override
 	public long getDays() {
@@ -101,11 +107,18 @@ public class Service extends Product{
 	}
 
 	@Override
-	public double getSubtotal() {
+	public double getTax() {
 		// TODO Auto-generated method stub
-		return 0;
+		return .0425;
 	}
 
+	@Override
+	public String getCustomerTax() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 
 	
 

@@ -158,21 +158,32 @@ public class InvoiceReport {
 				
 				
 			//for(Product i : invoiceProduct) {
-//			Invoice i=null;
+		//double cus=;
 //			for(Invoice id : invoiceList){
-			
-			
+				for(Customer c : customerList) {
+					if (c.getCustomerType().equals('B')) {
+						//cus=.07;
+						cust = c;
+					}
+				
+				}
+				int eq=0;
 				Product ped =null;
 				for(Product pd : inv.getProductData()){
+				//	eq=pd.getTax();
 					ped=pd;
-				
-					nb.append(String.format("%-10s %-50s %-9s %9s %9s %9s\n",
-							ped.getProductCode(), ped.getItems(), ped.getSubtotal(), "5", ped.getTotalFees(), "null"));
-					
-		
+				for(int i=0; i < ped.getSubtotal(); i++ ){
+					eq+=ped.getSubtotal();
+					break;
+				}
+					nb.append(String.format("%-10s %-50s $%-9.2f $%-9.2f $%9s %9s\n",
+							ped.getProductCode(), ped.getItems(), ped.getSubtotal(), (ped.getTax() * ped.getSubtotal()), ped.getTotalFees(), "null"));
 				}
 				outputStream.println(nb);
-				
+				outputStream.println("                                                              =====================================");
+				outputStream.println("SUB-TOTALS                                                    $"  + eq);
+				outputStream.println("COMPLIANCE FEE                                                $");
+				outputStream.println("FINAL TOTAL                                                   $ ");
 			}
 			outputStream.close();
 		} catch (FileNotFoundException e) {

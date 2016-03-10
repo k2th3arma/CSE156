@@ -96,7 +96,21 @@ public class Consultant extends Product{
 	@Override
 	public double getSubtotal() {
 		// TODO Auto-generated method stub
-		return 0;
+		return Double.parseDouble(getHours()) * Double.parseDouble(getServiceFee());
+	}
+
+
+	@Override
+	public double getTax() {
+		// TODO Auto-generated method stub
+		return .0425;
+	}
+
+
+	@Override
+	public String getCustomerTax() {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 
 	//Other Methods...

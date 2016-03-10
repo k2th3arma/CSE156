@@ -79,4 +79,16 @@ public class Equipment extends Product{
 		
 		return Double.parseDouble(getNumProduct()) * Double.parseDouble(getFee());
 	}
+
+	@Override
+	public double getTax() {
+		//if(getCustomerType().equals('B'));
+		return 0.07;
+	}
+
+	@Override
+	public String getCustomerTax() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

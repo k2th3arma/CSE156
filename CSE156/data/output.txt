@@ -24,8 +24,12 @@ Customer:
             Salina, KS  67401 USA
 ------------------------------------
 Code       Item                                               SubTotal      Taxes      Fees     Total
-b29e       Satellite Reciever  (2  units at  2500.0/units)    5000.0            5      0.00      null
+b29e       Satellite Reciever  (2  units at  2500.0/units)    $5000.00   $350.00    $     0.00      null
 
+                                                              =====================================
+SUB-TOTALS                                                    $5000
+COMPLIANCE FEE                                                $
+FINAL TOTAL                                                   $ 
 
 
 ----------------------------------
@@ -41,10 +45,14 @@ Customer:
            Lincoln,NE 68588 USA
 ------------------------------------
 Code       Item                                               SubTotal      Taxes      Fees     Total
-ff23       Wireless5G Router  (25  units at  124.99/units)    3124.75           5      0.00      null
-3289       Turbo Upgrade-Internet 10 hours at $25.00          0.0               5       150      null
-1239       Digital Setup Box  (1  units at  200.00/units)     200.0             5      0.00      null
+ff23       Wireless5G Router  (25  units at  124.99/units)    $3124.75   $218.73    $     0.00      null
+3289       Turbo Upgrade-Internet 10 hours at $25.00          $250.00    $10.63     $      150      null
+1239       Digital Setup Box  (1  units at  200.00/units)     $200.00    $14.00     $     0.00      null
 
+                                                              =====================================
+SUB-TOTALS                                                    $3574
+COMPLIANCE FEE                                                $
+FINAL TOTAL                                                   $ 
 
 
 ----------------------------------
@@ -60,9 +68,13 @@ Customer:
            Chicago,IL 60601 USA
 ------------------------------------
 Code       Item                                               SubTotal      Taxes      Fees     Total
-ff23       Wireless5G Router  (10  units at  124.99/units)    1249.8999999999999         5      0.00      null
-90fa       Long Distance Service  (413 days at $12000.00/yr)  0.0               5   2000.00      null
+ff23       Wireless5G Router  (10  units at  124.99/units)    $1249.90   $87.49     $     0.00      null
+90fa       Long Distance Service  (413 days at $12000.00/yr)  $13578.08  $577.07    $  2000.00      null
 
+                                                              =====================================
+SUB-TOTALS                                                    $14827
+COMPLIANCE FEE                                                $
+FINAL TOTAL                                                   $ 
 
 
 ----------------------------------
@@ -78,7 +90,11 @@ Customer:
             Salina, KS  67401 USA
 ------------------------------------
 Code       Item                                               SubTotal      Taxes      Fees     Total
-782g       Home Wifi Setup 10 hours at $150.00                0.0               5       150      null
-3294       L2 Home Security  (731 days at $35000.00/yr)       0.0               5      0.00      null
-3295       Domain registration  (1055 days at $1200.00/yr)    0.0               5    350.00      null
+782g       Home Wifi Setup 10 hours at $150.00                $1500.00   $63.75     $      150      null
+3294       L2 Home Security  (731 days at $35000.00/yr)       $70095.89  $2979.08   $     0.00      null
+3295       Domain registration  (1055 days at $1200.00/yr)    $3468.49   $147.41    $   350.00      null
 
+                                                              =====================================
+SUB-TOTALS                                                    $75063
+COMPLIANCE FEE                                                $
+FINAL TOTAL                                                   $ 

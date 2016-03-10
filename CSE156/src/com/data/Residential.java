@@ -12,7 +12,7 @@ public class Residential extends Customer{
 	@Override
 	public double getTax() {
 		// TODO Auto-generated method stub
-		return 1.0;
+		return 0;
 	}
 
 	@Override

@@ -41,7 +41,8 @@ public abstract class Product {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-
+	abstract public String getCustomerTax(); 
+	abstract public double getTax();
 	abstract public String getTotalFees();
 	abstract public double getSubtotal();
 	 abstract public String getItems();
