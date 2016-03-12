@@ -2,12 +2,12 @@ package com.data;
 
 import org.joda.time.format.DateTimeFormatter;
 
-public class Equipment extends Product{
+public class Equipment extends Product {
 
 	private String fee;
 	private String numProduct;
 	private String prodcutType;
-	
+
 	public String getProdcutType() {
 		return prodcutType;
 	}
@@ -16,13 +16,13 @@ public class Equipment extends Product{
 		this.prodcutType = prodcutType;
 	}
 
-	//Constructors
+	// Constructors
 	public Equipment(String productCode, String productName, String fee) {
 		super(productCode, productName);
 		this.fee = fee;
 	}
-	
-	//Getters and Setters
+
+	// Getters and Setters
 	public String getProductCode() {
 		return productCode;
 	}
@@ -38,7 +38,7 @@ public class Equipment extends Product{
 	public void setFee(String fee) {
 		this.fee = fee;
 	}
-	
+
 	public String getNumProduct() {
 		return numProduct;
 	}
@@ -46,11 +46,11 @@ public class Equipment extends Product{
 	public void setNumProduct(String numProduct) {
 		this.numProduct = numProduct;
 	}
-	//Other Methods...
+	// Other Methods...
 
 	@Override
 	public String getItems() {
-		
+
 		return getProductName() + "  (" + getNumProduct() + "  units at  " + getFee() + "/units)";
 	}
 
@@ -68,27 +68,27 @@ public class Equipment extends Product{
 	}
 
 	@Override
-	public String getTotalFees() {
+	public double getTotalFees() {
 		// TODO Auto-generated method stub
-		return "0.00";
+		return 0.00;
 	}
 
 	@Override
 	public double getSubtotal() {
 		// TODO Auto-generated method stub
-		
+
 		return Double.parseDouble(getNumProduct()) * Double.parseDouble(getFee());
 	}
 
 	@Override
 	public double getTax() {
-		//if(getCustomerType().equals('B'));
+		// if(getCustomerType().equals('B'));
 		return 0.07;
 	}
 
 	@Override
-	public String getCustomerTax() {
+	public double getCustomerTax() {
 		// TODO Auto-generated method stub
-		return null;
+		return getTax() * getSubtotal();
 	}
 }

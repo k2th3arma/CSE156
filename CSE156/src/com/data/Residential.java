@@ -1,12 +1,11 @@
 package com.data;
 
-public class Residential extends Customer{
+public class Residential extends Customer {
 
-
-	//Constructors
+	// Constructors
 	public Residential(String customerCode, String customerType, Person person, String customerName, Address address) {
 		super(customerCode, customerType, person, customerName, address);
-		
+
 	}
 
 	@Override
@@ -18,7 +17,7 @@ public class Residential extends Customer{
 	@Override
 	public double compliaceFee() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 125;
 	}
 
 	@Override
@@ -26,9 +25,8 @@ public class Residential extends Customer{
 		// TODO Auto-generated method stub
 		return "(Residential)";
 	}
-	
-	//Setters and Getters
-	
 
-	//Other Methods...
+	// Setters and Getters
+
+	// Other Methods...
 }

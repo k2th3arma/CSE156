@@ -1,4 +1,5 @@
 package com.data;
+
 import java.util.Calendar;
 import java.util.Date;
 import org.joda.time.format.DateTimeFormat;
@@ -7,8 +8,8 @@ import org.joda.time.Days;
 import org.joda.time.format.DateTimeFormat;
 import java.time.temporal.ChronoUnit;
 import java.time.LocalDate;
-import com.data.DateTime;
-public class Service extends Product{
+
+public class Service extends Product {
 
 	private String activationFee;
 	private String annualFee;
@@ -16,9 +17,10 @@ public class Service extends Product{
 	public String setNumProduct;
 	private String startDate;
 	private String endDate;
-	
+
 	private int numdays;
 	private long DAYS;
+
 	public String getServiceCode() {
 		return serviceCode;
 	}
@@ -27,14 +29,14 @@ public class Service extends Product{
 		this.serviceCode = serviceCode;
 	}
 
-	//Constructor
+	// Constructor
 	public Service(String productCode, String productName, String activationFee, String annualFee) {
 		super(productCode, productName);
 		this.activationFee = activationFee;
 		this.annualFee = annualFee;
 	}
-	
-	//Setters and Getters
+
+	// Setters and Getters
 	public String getProductCode() {
 		return productCode;
 	}
@@ -50,17 +52,18 @@ public class Service extends Product{
 	public void setActivationFee(String activationFee) {
 		this.activationFee = activationFee;
 	}
-	
-	public String getAnnualFee(){
-		return this. annualFee;
+
+	public String getAnnualFee() {
+		return this.annualFee;
 	}
-	
-	public void setAnnualFee(String annualFee){
+
+	public void setAnnualFee(String annualFee) {
 		this.annualFee = annualFee;
 	}
+
 	public String getItems() {
 		// TODO Auto-generated method stub
-		return getProductName()+ "  (" + testDate() + " days at $" + getAnnualFee() + "/yr)" ;
+		return getProductName() + "  (" + testDate() + " days at $" + getAnnualFee() + "/yr)";
 	}
 
 	public String getStartDate() {
@@ -78,11 +81,12 @@ public class Service extends Product{
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
+
 	@Override
 
 	public double getSubtotal() {
-		double mid=(testDate()) ;
-		return   (mid/365) * Double.parseDouble(getAnnualFee());
+		double mid = (testDate());
+		return (mid / 365) * Double.parseDouble(getAnnualFee());
 	}
 
 	@Override
@@ -94,16 +98,16 @@ public class Service extends Product{
 	@Override
 	public long testDate() {
 
-		LocalDate dateBefore=LocalDate.parse(getStartDate());
-		LocalDate dateAfter=LocalDate.parse(getEndDate());
+		LocalDate dateBefore = LocalDate.parse(getStartDate());
+		LocalDate dateAfter = LocalDate.parse(getEndDate());
 		long daysBetween = ChronoUnit.DAYS.between(dateBefore, dateAfter);
-		return daysBetween +1;// TODO Auto-generated method stub
+		return daysBetween + 1;// TODO Auto-generated method stub
 	}
 
 	@Override
-	public String getTotalFees() {
+	public double getTotalFees() {
 		// TODO Auto-generated method stub
-		return getActivationFee();
+		return Double.parseDouble(getActivationFee());
 	}
 
 	@Override
@@ -113,16 +117,10 @@ public class Service extends Product{
 	}
 
 	@Override
-	public String getCustomerTax() {
+	public double getCustomerTax() {
 		// TODO Auto-generated method stub
-		return null;
+		return getTax() * getSubtotal();
 	}
 
-	
-
-	
-
-	
-	
-	//Other Methods...
+	// Other Methods...
 }

@@ -6,24 +6,21 @@ public abstract class Customer {
 	private Person person;
 	private String customerName;
 	private Address address;
-	
-	
-	
 
-	//Constructor
+	// Constructor
 	public Customer(String customerCode, String customerType, Person person, String customerName, Address address) {
 		this.customerCode = customerCode;
-		this.customerType=customerType;
+		this.customerType = customerType;
 		this.person = person;
 		this.customerName = customerName;
 		this.address = address;
 	}
 
-	public Customer(){
-		
+	public Customer() {
+
 	}
 
-	//Setters & Getters
+	// Setters & Getters
 	public String getCustomerCode() {
 		return customerCode;
 	}
@@ -31,6 +28,7 @@ public abstract class Customer {
 	public void setCustomerCode(String customerCode) {
 		this.customerCode = customerCode;
 	}
+
 	public String getCustomerType() {
 		return customerType;
 	}
@@ -62,14 +60,12 @@ public abstract class Customer {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	
+
 	public abstract double getTax();
-	
+
 	public abstract String getType();
-	
+
 	public abstract double compliaceFee();
-	
-	
-	
-	//Other Methods...
+
+	// Other Methods...
 }

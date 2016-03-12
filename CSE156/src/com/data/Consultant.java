@@ -2,33 +2,29 @@ package com.data;
 
 import org.joda.time.format.DateTimeFormatter;
 
-public class Consultant extends Product{
+public class Consultant extends Product {
 
 	private Person person;
 	private String serviceFee;
 	private String ConsultantType;
 	private String hours;
-	
-	
+
 	public String getConsultantType() {
 		return ConsultantType;
 	}
-
 
 	public void setConsultantType(String consultantType) {
 		ConsultantType = consultantType;
 	}
 
-
-	//Constructors
+	// Constructors
 	public Consultant(String productCode, String productName, Person person, String serviceFee) {
 		super(productCode, productName);
 		this.person = person;
 		this.serviceFee = serviceFee;
 	}
 
-	
-	//Getters and Setters
+	// Getters and Setters
 	public String getProductCode() {
 		return productCode;
 	}
@@ -45,14 +41,13 @@ public class Consultant extends Product{
 		this.person = person;
 	}
 
-	public String getServiceFee(){
-		return this. serviceFee;
-	}
-	
-	public void setServiceFee(String serviceFee){
-		this.serviceFee = serviceFee;
+	public String getServiceFee() {
+		return this.serviceFee;
 	}
 
+	public void setServiceFee(String serviceFee) {
+		this.serviceFee = serviceFee;
+	}
 
 	@Override
 	public String getItems() {
@@ -60,24 +55,20 @@ public class Consultant extends Product{
 		return getProductName() + " " + getHours() + " hours at $" + getServiceFee();
 	}
 
-
 	public String getHours() {
 		return hours;
 	}
-
 
 	public void setHours(String splitProducts) {
 		this.hours = splitProducts;
 	}
 
-
 	@Override
 	public long getDays() {
 		// TODO Auto-generated method stub
-		
-	        return (Long) null;
-	}
 
+		return (Long) null;
+	}
 
 	@Override
 	public long testDate() {
@@ -85,13 +76,11 @@ public class Consultant extends Product{
 		return 1;
 	}
 
-
 	@Override
-	public String getTotalFees() {
+	public double getTotalFees() {
 		// TODO Auto-generated method stub
-		return "150";
+		return 150;
 	}
-
 
 	@Override
 	public double getSubtotal() {
@@ -99,19 +88,17 @@ public class Consultant extends Product{
 		return Double.parseDouble(getHours()) * Double.parseDouble(getServiceFee());
 	}
 
-
 	@Override
 	public double getTax() {
 		// TODO Auto-generated method stub
 		return .0425;
 	}
 
-
 	@Override
-	public String getCustomerTax() {
+	public double getCustomerTax() {
 		// TODO Auto-generated method stub
-		return null;
-	}	
+		return getTax() * getSubtotal();
+	}
 
-	//Other Methods...
+	// Other Methods...
 }

@@ -1,4 +1,5 @@
 package com.data;
+
 import java.io.PrintWriter;
 import java.util.List;
 import java.io.*;
@@ -9,13 +10,14 @@ public class Invoice {
 	private String invoiceDate;
 	private Person salesPerson;
 	private List<Product> productData;
-	
-	public Invoice(String invoiceCode, String customerCode, String invoiceDate, Person salesPerson, List<Product> productData){
+
+	public Invoice(String invoiceCode, String customerCode, String invoiceDate, Person salesPerson,
+			List<Product> productData) {
 		this.invoiceCode = invoiceCode;
 		this.customerCode = customerCode;
 		this.invoiceDate = invoiceDate;
 		this.salesPerson = salesPerson;
-		this.productData= productData;
+		this.productData = productData;
 	}
 
 	public String getInvoiceCode() {
@@ -58,14 +60,21 @@ public class Invoice {
 		this.productData = productData;
 	}
 
-//	public Object getProductCode() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-	
-	
-		
-		
-	
-	
+	// public double getSubInv(){
+	// return get
+	// }
+	// public Object getProductCode() {
+	// // TODO Auto-generated method stub
+	// return null;
+	// }
+
+	// public String getSum(){
+	// for(Product pd : inv.getProductData()){
+	//
+	// ped=pd;
+	// for(int i=0; i < ped.getSubtotal(); i++ ){
+	// eq+=ped.getSubtotal();
+	// break;
+	// }
+
 }
