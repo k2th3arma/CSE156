@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <com.data.Business>
   <customerCode>C001</customerCode>
+  <customerType>B</customerType>
   <person>
     <personCode>231</personCode>
     <lastName>Earl</lastName>
@@ -29,6 +30,7 @@
   </address>
 </com.data.Business><com.data.Business>
   <customerCode>C002</customerCode>
+  <customerType>B</customerType>
   <person>
     <personCode>944c</personCode>
     <lastName>McCoy</lastName>
@@ -55,6 +57,7 @@
   </address>
 </com.data.Business><com.data.Residential>
   <customerCode>C003</customerCode>
+  <customerType>R</customerType>
   <person>
     <personCode>306a</personCode>
     <lastName>Pertwee</lastName>
@@ -81,6 +84,7 @@
   </address>
 </com.data.Residential><com.data.Business>
   <customerCode>C004</customerCode>
+  <customerType>B</customerType>
   <person>
     <personCode>321f</personCode>
     <lastName>Sampson</lastName>
@@ -103,6 +107,7 @@
   </address>
 </com.data.Business><com.data.Residential>
   <customerCode>C005</customerCode>
+  <customerType>R</customerType>
   <person>
     <personCode>bbchar</personCode>
     <lastName>Tennant</lastName>
@@ -125,6 +130,7 @@
   </address>
 </com.data.Residential><com.data.Residential>
   <customerCode>C006</customerCode>
+  <customerType>R</customerType>
   <person>
     <personCode>321dr</personCode>
     <lastName>Baker</lastName>

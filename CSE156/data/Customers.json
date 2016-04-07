@@ -1,5 +1,6 @@
 {
   "customerCode": "C001",
+  "customerType": "B",
   "person": {
     "personCode": "231",
     "lastName": "Earl",
@@ -29,6 +30,7 @@
 }
 {
   "customerCode": "C002",
+  "customerType": "B",
   "person": {
     "personCode": "944c",
     "lastName": "McCoy",
@@ -56,6 +58,7 @@
 }
 {
   "customerCode": "C003",
+  "customerType": "R",
   "person": {
     "personCode": "306a",
     "lastName": "Pertwee",
@@ -83,6 +86,7 @@
 }
 {
   "customerCode": "C004",
+  "customerType": "B",
   "person": {
     "personCode": "321f",
     "lastName": "Sampson",
@@ -106,6 +110,7 @@
 }
 {
   "customerCode": "C005",
+  "customerType": "R",
   "person": {
     "personCode": "bbchar",
     "lastName": "Tennant",
@@ -129,6 +134,7 @@
 }
 {
   "customerCode": "C006",
+  "customerType": "R",
   "person": {
     "personCode": "321dr",
     "lastName": "Baker",

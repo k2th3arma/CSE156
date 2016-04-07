@@ -5,12 +5,14 @@ INV001     Stark Industries               Eccleston, Chris               $  5000
 INV002     University of Nebraska-Lincoln Smith, Matt                    $  3574.75 $   150.00 $   243.36 $  3968.11
 INV003     Vandelay Apartments            Castro, David                  $ 14827.98 $  2125.00 $     0.00 $ 16827.98
 INV004     Stark Industries               Castro, David                  $ 75064.38 $   500.00 $  3190.24 $ 78754.62
+
 =========================================================================================================================================
 TOTALS                                                                   $ 98467.12 $  2775.00 $  3783.59 $105025.71
 
 ================================
 Invoice Detail Report
 ================================
+
 
 
 ----------------------------------
@@ -26,12 +28,13 @@ Customer:
             Salina, KS  67401 USA
 ------------------------------------
 Code       Item                                               SubTotal      Taxes      Fees     Total
-b29e       Satellite Reciever  (2  units at  2500.0/units)    $  5000.00 $   350.00 $     0.00
 
+b29e       Satellite Reciever  (2  units at  2500.0/units)    $  5000.00 $   350.00 $     0.00
                                                               =====================================
 SUB-TOTALS                                                    $  5000.00 $   350.00 $     0.00 $  5350.00
 COMPLIANCE FEE                                                                                 $     0.00
 FINAL TOTAL                                                                                    $  5350.00
+
 
 
 ----------------------------------
@@ -47,14 +50,15 @@ Customer:
            Lincoln,NE 68588 USA
 ------------------------------------
 Code       Item                                               SubTotal      Taxes      Fees     Total
+
 ff23       Wireless5G Router  (25  units at  124.99/units)    $  3124.75 $   218.73 $     0.00
 3289       Turbo Upgrade-Internet 10 hours at $25.00          $   250.00 $    10.63 $   150.00
 1239       Digital Setup Box  (1  units at  200.00/units)     $   200.00 $    14.00 $     0.00
-
                                                               =====================================
 SUB-TOTALS                                                    $  3574.75 $   243.36 $   150.00 $  3968.11
 COMPLIANCE FEE                                                                                 $     0.00
 FINAL TOTAL                                                                                    $  3968.11
+
 
 
 ----------------------------------
@@ -70,13 +74,14 @@ Customer:
            Chicago,IL 60601 USA
 ------------------------------------
 Code       Item                                               SubTotal      Taxes      Fees     Total
+
 ff23       Wireless5G Router  (10  units at  124.99/units)    $  1249.90 $    87.49 $     0.00
 90fa       Long Distance Service  (413 days at $12000.00/yr)  $ 13578.08 $   577.07 $  2000.00
-
                                                               =====================================
 SUB-TOTALS                                                    $ 14827.98 $     0.00 $  2000.00 $ 16827.98
 COMPLIANCE FEE                                                                                 $   125.00
 FINAL TOTAL                                                                                    $ 16952.98
+
 
 
 ----------------------------------
@@ -92,10 +97,10 @@ Customer:
             Salina, KS  67401 USA
 ------------------------------------
 Code       Item                                               SubTotal      Taxes      Fees     Total
+
 782g       Home Wifi Setup 10 hours at $150.00                $  1500.00 $    63.75 $   150.00
 3294       L2 Home Security  (731 days at $35000.00/yr)       $ 70095.89 $  2979.08 $     0.00
 3295       Domain registration  (1055 days at $1200.00/yr)    $  3468.49 $   147.41 $   350.00
-
                                                               =====================================
 SUB-TOTALS                                                    $ 75064.38 $  3190.24 $   500.00 $ 78754.62
 COMPLIANCE FEE                                                                                 $     0.00

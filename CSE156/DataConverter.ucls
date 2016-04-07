@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.9" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="com.output.DataTransfer" project="CSE156" 
-    file="/CSE156/src/com/output/DataTransfer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="94" y="63"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="2" language="java" name="com.fileWriter.JsonWriter" project="CSE156" 
+  <class id="1" language="java" name="com.fileWriter.JsonWriter" project="CSE156" 
     file="/CSE156/src/com/fileWriter/JsonWriter.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="108" y="330"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -19,16 +10,16 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="com.fileWriter.XMLWriter" project="CSE156" 
+  <class id="2" language="java" name="com.fileWriter.XMLWriter" project="CSE156" 
     file="/CSE156/src/com/fileWriter/XMLWriter.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="106" y="466"/>    
+    <position height="-1" width="-1" x="104" y="500"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="com.fileReader.FileReader" project="CSE156" 
+  <class id="3" language="java" name="com.fileReader.FileReader" project="CSE156" 
     file="/CSE156/src/com/fileReader/FileReader.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="128" width="208" x="2" y="127"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -37,34 +28,34 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="com.data.Product" project="CSE156" file="/CSE156/src/com/data/Product.java" 
+  <class id="4" language="java" name="com.data.Product" project="CSE156" file="/CSE156/src/com/data/Product.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="845" y="258"/>    
+    <position height="-1" width="-1" x="839" y="432"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="com.data.Service" project="CSE156" file="/CSE156/src/com/data/Service.java" 
+  <class id="5" language="java" name="com.data.Service" project="CSE156" file="/CSE156/src/com/data/Service.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="774" y="551"/>    
+    <position height="-1" width="-1" x="904" y="955"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="com.data.Equipment" project="CSE156" file="/CSE156/src/com/data/Equipment.java" 
+  <class id="6" language="java" name="com.data.Equipment" project="CSE156" file="/CSE156/src/com/data/Equipment.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="974" y="578"/>    
+    <position height="-1" width="-1" x="1040" y="416"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="com.data.Person" project="CSE156" file="/CSE156/src/com/data/Person.java" 
+  <class id="7" language="java" name="com.data.Person" project="CSE156" file="/CSE156/src/com/data/Person.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="601" y="187"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -73,16 +64,16 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="com.data.Business" project="CSE156" file="/CSE156/src/com/data/Business.java" 
+  <class id="8" language="java" name="com.data.Business" project="CSE156" file="/CSE156/src/com/data/Business.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="345" y="710"/>    
+    <position height="-1" width="-1" x="375" y="1020"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="com.data.Address" project="CSE156" file="/CSE156/src/com/data/Address.java" 
+  <class id="9" language="java" name="com.data.Address" project="CSE156" file="/CSE156/src/com/data/Address.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="332" y="181"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -91,16 +82,16 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="com.data.Residential" project="CSE156" 
+  <class id="10" language="java" name="com.data.Residential" project="CSE156" 
     file="/CSE156/src/com/data/Residential.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="120" y="712"/>    
+    <position height="-1" width="-1" x="82" y="1020"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="12" language="java" name="com.data.DataCollection" project="CSE156" 
+  <interface id="11" language="java" name="com.data.DataCollection" project="CSE156" 
     file="/CSE156/src/com/data/DataCollection.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="838" y="40"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -109,58 +100,66 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="13" language="java" name="com.data.Consultant" project="CSE156" file="/CSE156/src/com/data/Consultant.java" 
+  <class id="12" language="java" name="com.data.Consultant" project="CSE156" file="/CSE156/src/com/data/Consultant.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="564" y="542"/>    
+    <position height="-1" width="-1" x="666" y="876"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="com.data.Customer" project="CSE156" file="/CSE156/src/com/data/Customer.java" 
+  <class id="13" language="java" name="com.data.Customer" project="CSE156" file="/CSE156/src/com/data/Customer.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="332" y="512"/>    
+    <position height="-1" width="-1" x="360" y="644"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="15">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="14"/>  
-  </generalization>  
-  <generalization id="16">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="14"/>  
-  </generalization>  
-  <association id="17">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="18" name="address">        
+  <association id="14">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="15" name="address">        
         <position height="0" width="0" x="-456" y="-126"/>      
       </attribute>      
-      <multiplicity id="19" minimum="0" maximum="1">        
+      <multiplicity id="16" minimum="0" maximum="1">        
         <position height="0" width="0" x="-456" y="-126"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="20">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="21" name="address"/>      
-      <multiplicity id="22" minimum="0" maximum="1"/>    
+  <generalization id="17">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="13"/>  
+  </generalization>  
+  <association id="18">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="19" name="person">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="20" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
+    <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="23">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="24" name="person"/>      
-      <multiplicity id="25" minimum="0" maximum="1"/>    
+  <generalization id="21">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="13"/>  
+  </generalization>  
+  <association id="22">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="23" name="address">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="24" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

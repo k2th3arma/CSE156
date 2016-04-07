@@ -60,21 +60,6 @@ public class Invoice {
 		this.productData = productData;
 	}
 
-	// public double getSubInv(){
-	// return get
-	// }
-	// public Object getProductCode() {
-	// // TODO Auto-generated method stub
-	// return null;
-	// }
 
-	// public String getSum(){
-	// for(Product pd : inv.getProductData()){
-	//
-	// ped=pd;
-	// for(int i=0; i < ped.getSubtotal(); i++ ){
-	// eq+=ped.getSubtotal();
-	// break;
-	// }
 
 }

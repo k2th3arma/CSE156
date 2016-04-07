@@ -74,7 +74,7 @@ public class InvoiceReport {
 			outputStream.println("========================================");
 			StringBuilder sb = new StringBuilder();
 			StringBuilder to = new StringBuilder();
-			sb.append(String.format("%-12s %-30s %-30s %-9s %9s %9s %9s\n", "Invoice", "Customer", "Salesperson",
+			sb.append(String.format("%-12s %-30s %-30s %-9s %9s %9s %9s%n", "Invoice", "Customer", "Salesperson",
 					"SubTotal", "Fees", "Taxes", "Total"));
 			// invoice number
 			double subfee = 0;
@@ -165,15 +165,15 @@ public class InvoiceReport {
 					}
 				}
 
-				sb.append(String.format("%-10s %-30s %-30s $%9.2f $%9.2f $%9.2f $%9.2f\n", i.getInvoiceCode(),
+				sb.append(String.format("%-10s %-30s %-30s $%9.2f $%9.2f $%9.2f $%9.2f%n", i.getInvoiceCode(),
 						cust.getCustomerName(), per.getName(), num, fees + cust.compliaceFee(), sumTaxes,
 						(num + fees + sumTaxes))); // TODO: replace these
 
 			}
-			to.append(String.format("%-10s %61s $%9.2f $%9.2f $%9.2f $%9.2f\n", "TOTALS ", "", finalTot, subtot,
+			to.append(String.format("%-10s %61s $%9.2f $%9.2f $%9.2f $%9.2f%n", "TOTALS ", "", finalTot, subtot,
 					totalTaxes, (finalTot + subtot + totalTaxes)));
 			outputStream.print(sb);
-			// outputStream.println(to);
+			outputStream.println("");
 			outputStream.println(
 					"=========================================================================================================================================");
 
@@ -190,7 +190,7 @@ public class InvoiceReport {
 
 				nb.append(String.format("%-10s %-50s %-9s %9s %9s %9s\n", "Code", "Item", "SubTotal", "Taxes", "Fees",
 						"Total"));
-
+				outputStream.println("");
 				for (Customer c : customerList) {
 					if (c.getCustomerCode().equals(inv.getCustomerCode())) {
 						cust = c;
@@ -256,8 +256,8 @@ public class InvoiceReport {
 						tot += eq;
 						break;
 					}
-
-					nb.append(String.format("%-10s %-50s $%9.2f $%9.2f $%9.2f\n", ped.getProductCode(), ped.getItems(),
+					
+					nb.append(String.format("%n%-10s %-50s $%9.2f $%9.2f $%9.2f", ped.getProductCode(), ped.getItems(),
 							ped.getSubtotal(), (ped.getCustomerTax()), ped.getTotalFees()));
 				}
 				outputStream.println(nb);

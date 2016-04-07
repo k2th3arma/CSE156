@@ -70,7 +70,7 @@ public class Equipment extends Product {
 	@Override
 	public double getTotalFees() {
 		// TODO Auto-generated method stub
-		return 0.00;
+		return 0.0;
 	}
 
 	@Override

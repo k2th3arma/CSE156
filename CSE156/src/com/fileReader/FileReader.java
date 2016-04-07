@@ -2,6 +2,7 @@ package com.fileReader;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,6 +18,8 @@ import com.data.Person;
 import com.data.Product;
 import com.data.Residential;
 import com.data.Service;
+
+//import edu.unl.cse.sql.DatabaseInfo;
 
 public class FileReader {
 	
@@ -228,8 +231,7 @@ public class FileReader {
 						for(Product prod : productList){
 							if (prod.getProductCode().equals(splitProducts[0])){
 								
-							//System.out.println(pd.getProductCode());
-							//invoiceProduct.add(pd);
+
 							
 							
 								if (prod.getProductType().equals("E")){
@@ -237,8 +239,7 @@ public class FileReader {
 								e.setNumProduct(splitProducts[1]);
 								
 								invoiceProduct.add(e);
-								//break;
-								//System.out.println(invoiceProduct);
+
 							}
 							else if (prod.getProductType().equals("S")){
 									
@@ -247,16 +248,15 @@ public class FileReader {
 								s.setStartDate(splitProducts[1]);
 								s.setEndDate(splitProducts[2]);
 								invoiceProduct.add(s);
-								//break;
+
 							}	
 							else if (prod.getProductType().equals("C")){
 								Consultant c =(Consultant) prod;
 								c.setHours(splitProducts[1]);
 								invoiceProduct.add(c);
-						//break;
+
 						}
-								//System.out.println(invoiceProduct);
-							// invoiceProduct.add(pd);
+
 						}
 					 }
 					 }
@@ -281,5 +281,6 @@ public class FileReader {
 				return null;
 			}	
 		}
+	
 	
 }
