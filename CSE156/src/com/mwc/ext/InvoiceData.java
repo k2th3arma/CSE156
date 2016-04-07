@@ -1,5 +1,9 @@
 package com.mwc.ext;
 
+import java.sql.*;
+
+import com.fileReader.DatabaseInfo;
+
 /* NOTE: Donot change the package name or any of the method signatures.
  *  
  * There are 14 methods in total, all of which need to be completed as a 
@@ -27,13 +31,88 @@ public class InvoiceData {
 	
 	/**Method to add a person record to the database with the provided data. 
 	 */
-	public static void addPerson(String personCode, String firstName, String lastName, 
-			String street, String city, String state, String zip, String country) {}
+	public static void addPerson(String personCode, String firstName, String lastName, String street, String city, String state, String zip, String country) {
+		Connection conn = DatabaseInfo.getConnection();
+		PreparedStatement ps;
+		ResultSet rs;
+		
+		try{
+			String query = "SELECT * FROM person";
+			String insert = "INSERT INTO person (PersonCode, PersonName, PersonAddress) VALUES(?,?,?)";
+			
+			ps = conn.prepareStatement(query);
+			rs = ps.executeQuery();
+			rs.next();
+			
+			ps = conn.prepareStatement(insert);
+			
+			ps.setString(1, personCode);
+			ps.setString(2, firstName);
+			ps.setString(3, street);
+			
+			ps.executeUpdate();
+			rs.next();
+			
+			query = "SELECT * FROM Address";
+			insert = "INSERT INTO Address (PersonCode, PersonName, PersonAddress) VALUES(?,?,?)";
+			
+			ps = conn.prepareStatement(query);
+			rs = ps.executeQuery();
+			rs.next();
+			
+			ps = conn.prepareStatement(insert);
+			
+			ps.setString(1, personCode);
+			ps.setString(2, firstName);
+			ps.setString(3, street);
+			
+			ps.executeUpdate();
+			rs.next();
+			
+			conn.close();
+		}
+		catch(SQLException e){
+			System.out.println("SQLException: ");
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		
+		
+	}
 	
 	/**Method to add an email record to the database with the associated personCode. 
 	 */
 	public static void addEmail(String personCode, String email) {
-	}
+		Connection conn = DatabaseInfo.getConnection();
+		PreparedStatement ps;
+		ResultSet rs;
+		
+		String query = "SELECT * FROM Email";
+		String insert = "INSERT INTO Email (personCode, email) VALUES(?,?)";
+		
+		try{
+			ps = conn.prepareStatement(query);
+			rs = ps.executeQuery();
+			rs.next();
+			
+			ps = conn.prepareStatement(insert);
+			
+			ps.setString(1, personCode);
+			ps.setString(2, email);
+			
+			
+			ps.executeUpdate();
+			rs.next();
+			
+			conn.close();
+		}
+		catch(SQLException e){
+			System.out.println("SQLException: ");
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		}
+	
 	
 	/**Method that removes every customer record from the database. 
 	 */
