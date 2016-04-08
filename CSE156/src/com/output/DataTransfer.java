@@ -9,7 +9,6 @@ package com.output;
 	 */
 
 	import java.util.List;
-
 	import com.data.Customer;
 	import com.data.Invoice;
 	import com.data.Person;
@@ -17,6 +16,7 @@ package com.output;
 	import com.fileReader.FileReader;
 	import com.fileWriter.JsonWriter;
 	import com.fileWriter.XMLWriter;
+import com.mwc.ext.InvoiceData;
 
 	public class DataTransfer {
 
@@ -52,6 +52,7 @@ package com.output;
 			// Write Person ArrayList into an XML file
 			xmlWriter.xmlProduct(productList); 
 			 
+			InvoiceData.addServiceToInvoice("INV003", "3294","2015-12-11", "2016-23-12");
 			}
 		
 
