@@ -86,7 +86,7 @@ public class Service extends Product {
 
 	public double getSubtotal() {
 		double mid = (testDate());
-		return (mid / 365) * Double.parseDouble(getAnnualFee());
+		return (mid / 365) * Double.valueOf(getAnnualFee());
 	}
 
 	@Override

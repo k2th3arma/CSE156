@@ -17,6 +17,7 @@ package com.output;
 	import com.fileReader.FileReader;
 	import com.fileWriter.JsonWriter;
 	import com.fileWriter.XMLWriter;
+import com.mwc.ext.InvoiceData;
 
 	public class DataTransfer {
 
@@ -51,7 +52,8 @@ package com.output;
 						
 			// Write Person ArrayList into an XML file
 			xmlWriter.xmlProduct(productList); 
-			 
+			
+			//InvoiceData.addInvoice("INV007","1","2","3");
 			}
 		
 

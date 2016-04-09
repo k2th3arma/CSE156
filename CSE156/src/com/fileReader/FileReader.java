@@ -1,11 +1,10 @@
 package com.fileReader;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 import com.data.Address;
 import com.data.Business;
@@ -15,9 +14,12 @@ import com.data.Equipment;
 import com.data.Invoice;
 import com.data.DataCollection;
 import com.data.Person;
+import com.data.PersonList;
 import com.data.Product;
 import com.data.Residential;
 import com.data.Service;
+
+
 
 //import edu.unl.cse.sql.DatabaseInfo;
 
@@ -25,261 +27,257 @@ public class FileReader {
 	
 	//File Reader for the person profile
 	public ArrayList<Person> readPersons() {
-		Scanner sc = null;
-		ArrayList<Person> personList = null;
-			try {
-				sc = new Scanner(new File("data/Persons.dat"));
-				sc.nextLine(); 
-				
-				 personList = new ArrayList<Person>();
-				
-				while(sc.hasNext()) {
-					String line 			= sc.nextLine(); 
-					String data[] 			= line.split(";");
-					String email[] 			= null;
-					String personCode 		= data[0];
-					String name[] 			= data[1].split(",");
-					String lastName 		= name[0];
-					String firstName 		= name[1];
-					String addressArray[]	= data[2].split(",");
-					if(data.length == 4){
-						email 	    		= data[3].split(",");
-					}
-					String street 			= addressArray[0];
-					String city 			= addressArray[1];
-					String state 			= addressArray[2];
-					String zip 				= addressArray[3];
-					String country			= addressArray[4];
-					
-					Address address = new Address(street, city, state, zip, country);
-					
-					Person person = new Person(personCode, lastName, firstName, address, email);
 
-					personList.add(person);
-				}
-				sc.close();
-				return personList;
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-				return null;
-			}	
+		//ArrayList<Person> personList = null;
+		ArrayList<Person> p = null;
+		
+		String query = "select * from person join Email on person.PersonCode=Email.PersonCode join Address on person.PersonCode=Address.PersonCode";
+		Connection conn = DatabaseInfo.getConnection();
+		
+		try
+		{
+			//personList = new ArrayList<Person>();
+			PreparedStatement ps = conn.prepareStatement(query);
+			
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+
+			while(rs.next()){
+			Address address = new Address(rs.getString("street"),rs.getString("city"),rs.getString("state"),rs.getString("zip"),rs.getString("country"));
+			
+			String email[] 	= null;
+			if(rs.getString("email") != null){
+				email = rs.getString("email").split(",");
+			}
+
+			Person a = new Person(rs.getString("personCode"),rs.getString("FirstName"),rs.getString("LastName"),address, email);
+			
+			p.add(a);
+			}
+			conn.close();
+
 		}
-	
+
+		catch (SQLException e)
+		{
+			System.out.println("SQLException: ");
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		return p;
+	}
+
 	//File Reader for the customer profile
 	public ArrayList<Customer> readCustomer() {
-		Scanner sc = null;
-				
-		try {
-				sc = new Scanner(new File("data/Customers.dat"));
-				sc.nextLine(); 
-					
-				ArrayList<Customer> customerList = new ArrayList<Customer>();
-					
-				while(sc.hasNext()) {
-					String line				 = sc.nextLine(); 
-					String data[] 			 = line.split(";");
-					String customerCode 	 = data[0];
-					String customerType 	 = data[1];
-					String personCode 		 = data[2];
-					String customerName      = data[3];
-					String addressArray[]	 = data[4].split(",");
-					String street 			 = addressArray[0];
-					String city 			 = addressArray[1];
-					String state 			 = addressArray[2];
-					String zip 				 = addressArray[3];
-					String country			 = addressArray[4];
-					Business business 		 = null;
-					Residential residential  = null;
-					Person person			 = null;
-					
-					Address address = new Address(street, city, state, zip, country);
-					
-					ArrayList<Person> persons = readPersons();
-					
-					for(Person pers: persons){
-						if(pers.getPersonCode().equals(personCode)){
-							person = pers;
-						}
-					}
-					switch(customerType){
-						case "B":
-							
-							business = new Business(customerCode, customerType, person, customerName, address);
-							
-							customerList.add(business);
-							
-							break;
-						case "R":
-							
-							residential = new Residential(customerCode, customerType, person, customerName, address);
-							customerList.add(residential);
-							break;
-					}
-						
-						
-				}
-				sc.close();
-				return customerList;
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-				return null;
-			}	
+
+		ArrayList<Customer> customerList = null;
+		Business business 		 = null;
+		Residential residential  = null;
+		Person person			 = null;
+		
+		String query = "select * from customer join person on customer.PersonCode=person.PersonCode join Address on customer.customerCode=Address.customerCode";
+		Connection conn = DatabaseInfo.getConnection();
+		
+		try
+		{
+			customerList = new ArrayList<Customer>();
+			PreparedStatement ps = conn.prepareStatement(query);
+
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+
+			while(rs.next()){
+			Address address = new Address(rs.getString("street"),rs.getString("city"),rs.getString("state"),rs.getString("zip"),rs.getString("country"));
+			
+			ArrayList<Person> persons = readPersons();
+			//PersonList persons = readPersons();
+
+			for(Person pers: persons){
+			if(pers.getPersonCode().equals(rs.getString("PersonCode"))){
+				person = pers;
+			}
 		}
+		switch(rs.getString("CustomerType")){
+			case "B":
+				
+				business = new Business(rs.getString("CustomerCode"), rs.getString("CustomerType"), person, rs.getString("CustomerContact"), address);
+				
+				customerList.add(business);
+				
+				break;
+			case "R":
+				
+				residential = new Residential(rs.getString("CustomerCode"), rs.getString("CustomerType"), person, rs.getString("CustomerContact"), address);
+				customerList.add(residential);
+				break;
+		}
+			
+			}
+			
+			conn.close();
+
+			}
+
+		catch (SQLException e)
+		{
+			System.out.println("SQLException: ");
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		return customerList;
+	}
+
 	
 	//File Reader for the product profile
 	public ArrayList<Product> readProduct() {
-		Scanner sc = null;
+		
+		ArrayList<Product> productList = null;
+		Equipment equipment 		= null;
+		Service service			 	= null;
+		Consultant consultation 	= null;
+		Person person 				= null;
+		
+		String query = "select * from products";
+		Connection conn = DatabaseInfo.getConnection();
+		
+		try
+		{
+			productList = new ArrayList<Product>();
+			PreparedStatement ps = conn.prepareStatement(query);
+
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+
+			while(rs.next()){
 				
-		try {
-				sc = new Scanner(new File("data/Products.dat"));
-				sc.nextLine(); 
-					
-				ArrayList<Product> productList = new ArrayList<Product>();
-					
-				while(sc.hasNext()) {
-					String line					= sc.nextLine(); 
-					String data[] 				= line.split(";");
-					String fee 					= null;
-					String activationFee 		= null;
-					Equipment equipment 		= null;
-					Service service			 	= null;
-					Consultant consultation 	= null;
-					Product product 			= null;
-					String productType 			= null;
-					switch(data[1]){
-						case "E":
-							
-							String productCode 	= data[0];
-							String productName 	= data[2];
-							fee	   				= data[3];
-							
-							equipment = new Equipment(productCode, productName, fee);
-							equipment.setProductType("E");
-							productList.add(equipment);
-							
-							break;
-						case "S":
-							 productCode 		= data[0];
-							 productName 		= data[2];
-							 activationFee   	= data[3];
-							 String annualFee 	= data[4];
-							 
-							 service = new Service(productCode, productName, activationFee, annualFee);
-							 service.setProductType("S");
-							 productList.add(service);
-							 
-							 break;
-						case "C":
-							 productCode	    = data[0];
-							 productName	    = data[2];
-							 String personCode  = data[3];
-							 String serviceFee  = data[4];
-							 Person person      = null;
-							 
-							 ArrayList<Person> persons = readPersons();
-						   	 
-							 for(Person pers: persons){
-								if(pers.getPersonCode().equals(personCode)){
-									person = pers;
-								}
-							}
-							 consultation = new Consultant(productCode, productName, person, serviceFee);
-							 consultation.setProductType("C");
-							 productList.add(consultation); 
-							 break;
+			switch(rs.getString("ProductType")){
+			case "E":
+				
+
+				equipment = new Equipment(rs.getString("ProductCode"), rs.getString("ProductName"), rs.getString("ProductUnitPrice"));
+				equipment.setProductType("E");
+				productList.add(equipment);
+				
+				break;
+			case "S":
+ 
+				 service = new Service(rs.getString("ProductCode"), rs.getString("ProductName"), rs.getString("ProductSetUp"), rs.getString("ProductUnitPrice"));
+				 service.setProductType("S");
+				 productList.add(service);
+				 
+				 break;
+			case "C":
+ 
+				 ArrayList<Person> persons = readPersons();
+			   	 
+				 for(Person pers: persons){
+					if(pers.getPersonCode().equals(rs.getString("personCode"))){
+						person = pers;
 					}
 				}
-				sc.close();
-				return productList;
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-				return null;
-			}	
+				 consultation = new Consultant(rs.getString("ProductCode"), rs.getString("ProductName"), person, rs.getString("ProductUnitPrice"));
+				 consultation.setProductType("C");
+				 productList.add(consultation); 
+				 break;
+			
+			}
+			}
+			conn.close();
+			
+
+		}
+
+		catch (SQLException e)
+		{
+			System.out.println("SQLException: ");
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		return productList;
+				
 		}
 
 	public ArrayList<Invoice> readInvoice() {
-		Scanner sc = null;
+
 		ArrayList<Invoice> invoiceList = null;
-			try {
-				sc = new Scanner(new File("data/Invoices.dat"));
-				sc.nextLine(); 
+		Equipment equipment 		= null;
+		Service service			 	= null;
+		Consultant consultation 	= null;
+		Person person 				= null;
+		
+		String query = "select * from invoice join InvoiceProducts on invoice.InvoiceNum=InvoiceProducts.InvoiceNum";
+		Connection conn = DatabaseInfo.getConnection();
+		
+		try
+		{
+			invoiceList = new ArrayList<Invoice>();
+			PreparedStatement ps = conn.prepareStatement(query);
+
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+
+			while(rs.next()){
 				
-				 invoiceList = new ArrayList<Invoice>();
+			//Empty array list 
+			 ArrayList<Product> invoiceProduct= new ArrayList<Product>();
 			
-				while(sc.hasNext()) {
-					String line 			= sc.nextLine(); 
-					String data[] 			= line.split(";");
+
+				ArrayList<Product> productList = readProduct();
+				
+				for(Product prod : productList){
+					if (prod.getProductCode().equals(rs.getString("ProductCode"))){
 					
-					String invoiceCode 		= data[0];
-					String customerCode		= data[1];
-					String invoiceDate		= data[2];
-					String salesPerson      = data[3];
-			
-					String productData[]   = data[4].split(",");
-					String product=null;
-					Person person = null;
-					
-					
-					
-						//Emety array list 
-					 ArrayList<Product> invoiceProduct= new ArrayList<Product>();
-					
-					 for(int i = 0; i < productData.length; ++i){
-						ArrayList<Product> productList = readProduct();
-						String splitProducts []=  productData[i].split(":");
+						if (prod.getProductType().equals("E")){
+						Equipment e  = (Equipment) prod;
+						e.setNumProduct(rs.getString("ProductAmount"));
 						
-						for(Product prod : productList){
-							if (prod.getProductCode().equals(splitProducts[0])){
-								
+						invoiceProduct.add(e);
 
-							
-							
-								if (prod.getProductType().equals("E")){
-								Equipment e  = (Equipment) prod;
-								e.setNumProduct(splitProducts[1]);
-								
-								invoiceProduct.add(e);
-
-							}
-							else if (prod.getProductType().equals("S")){
-									
-								Service s= (Service) prod;
-								s.setNumProduct=" ";
-								s.setStartDate(splitProducts[1]);
-								s.setEndDate(splitProducts[2]);
-								invoiceProduct.add(s);
-
-							}	
-							else if (prod.getProductType().equals("C")){
-								Consultant c =(Consultant) prod;
-								c.setHours(splitProducts[1]);
-								invoiceProduct.add(c);
-
-						}
-
-						}
-					 }
-					 }
-					 
-					ArrayList<Person> persons = readPersons();
-				   	 
-					for(Person pers: persons){
-						if(pers.getPersonCode().equals(salesPerson)){
-							person = pers;
-						}
 					}
-					Invoice invoice = new Invoice(invoiceCode, customerCode, invoiceDate, person, invoiceProduct);
-				
-					invoiceList.add(invoice);
-				
+					else if (prod.getProductType().equals("S")){
+							
+						Service s= (Service) prod;
+						s.setStartDate(rs.getString("StartTime"));
+						s.setEndDate(rs.getString("EndTime"));
+						invoiceProduct.add(s);
+
+					}	
+					else if (prod.getProductType().equals("C")){
+						Consultant c =(Consultant) prod;
+						c.setHours(rs.getString("ProductAmount"));
+						invoiceProduct.add(c);
+
 				}
+
+				}
+			 }
+			 
+				
+			ArrayList<Person> persons = readPersons();
+		   	 
+			for(Person pers: persons){
+				if(pers.getPersonCode().equals(rs.getString("InvoiceRepCode"))){
+					person = pers;
+				}
+			}
+			Invoice invoice = new Invoice(rs.getString("InvoiceNum"),rs.getString("InvoiceCustomer"), rs.getString("invoiceDate"), person, invoiceProduct);
+		
+			invoiceList.add(invoice);
+		
+		}
 			
-				sc.close();
-				return invoiceList;
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-				return null;
-			}	
+			conn.close();
+			
+	}
+
+		catch (SQLException e)
+		{
+			System.out.println("SQLException: ");
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		return invoiceList;
+	
 		}
 	
 	

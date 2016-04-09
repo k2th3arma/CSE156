@@ -107,7 +107,6 @@ public class InvoiceReport {
 					}
 				}
 
-				// Product sub = null;
 				for (Product pd : i.getProductData()) {
 					sub = pd;
 					for (int a = 0; a < sub.getSubtotal(); a++) {
