@@ -9,6 +9,7 @@ package com.output;
 	 */
 
 	import java.util.List;
+
 	import com.data.Customer;
 	import com.data.Invoice;
 	import com.data.Person;
@@ -51,8 +52,8 @@ import com.mwc.ext.InvoiceData;
 						
 			// Write Person ArrayList into an XML file
 			xmlWriter.xmlProduct(productList); 
-			 
-			InvoiceData.addServiceToInvoice("INV003", "3294","2015-12-11", "2016-23-12");
+			
+			//InvoiceData.addInvoice("INV007","1","2","3");
 			}
 		
 

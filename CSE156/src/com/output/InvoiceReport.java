@@ -66,16 +66,13 @@ public class InvoiceReport {
 
 		List<Product> invoiceProduct = fp.readProduct();
 
-		String fileName = "data/output.txt";
 		try {
-			PrintWriter outputStream = new PrintWriter(fileName);
-
-			outputStream.println("INVOICE SUMMARY REPORT");
-			outputStream.println("========================================");
+			System.out.println("INVOICE SUMMARY REPORT");
+			System.out.println("========================================");
 			StringBuilder sb = new StringBuilder();
 			StringBuilder to = new StringBuilder();
-			sb.append(String.format("%-12s %-30s %-30s %-9s %9s %9s %9s%n", "Invoice", "Customer", "Salesperson",
-					"SubTotal", "Fees", "Taxes", "Total"));
+			System.out.format("%-12s %-30s %-30s %-9s %9s %9s %9s%n", "Invoice", "Customer", "Salesperson",
+					"SubTotal", "Fees", "Taxes", "Total");
 			// invoice number
 			double subfee = 0;
 			Customer cust = null;
@@ -107,7 +104,6 @@ public class InvoiceReport {
 					}
 				}
 
-				// Product sub = null;
 				for (Product pd : i.getProductData()) {
 					sub = pd;
 					for (int a = 0; a < sub.getSubtotal(); a++) {
@@ -165,23 +161,23 @@ public class InvoiceReport {
 					}
 				}
 
-				sb.append(String.format("%-10s %-30s %-30s $%9.2f $%9.2f $%9.2f $%9.2f%n", i.getInvoiceCode(),
+				System.out.format("%-10s %-30s %-30s $%9.2f $%9.2f $%9.2f $%9.2f%n", i.getInvoiceCode(),
 						cust.getCustomerName(), per.getName(), num, fees + cust.compliaceFee(), sumTaxes,
-						(num + fees + sumTaxes))); // TODO: replace these
+						(num + fees + sumTaxes)); // TODO: replace these
 
 			}
 			to.append(String.format("%-10s %61s $%9.2f $%9.2f $%9.2f $%9.2f%n", "TOTALS ", "", finalTot, subtot,
 					totalTaxes, (finalTot + subtot + totalTaxes)));
-			outputStream.print(sb);
-			outputStream.println("");
-			outputStream.println(
+			System.out.print(sb);
+			System.out.println("");
+			System.out.println(
 					"=========================================================================================================================================");
 
-			outputStream.println(to);
+			System.out.println(to);
 
-			outputStream.println("================================");
-			outputStream.println("Invoice Detail Report");
-			outputStream.println("================================");
+			System.out.println("================================");
+			System.out.println("Invoice Detail Report");
+			System.out.println("================================");
 
 			// second
 
@@ -190,7 +186,7 @@ public class InvoiceReport {
 
 				nb.append(String.format("%-10s %-50s %-9s %9s %9s %9s\n", "Code", "Item", "SubTotal", "Taxes", "Fees",
 						"Total"));
-				outputStream.println("");
+				System.out.println("");
 				for (Customer c : customerList) {
 					if (c.getCustomerCode().equals(inv.getCustomerCode())) {
 						cust = c;
@@ -203,21 +199,21 @@ public class InvoiceReport {
 					}
 				}
 
-				outputStream.println("");
-				outputStream.println("");
-				outputStream.println("----------------------------------");
-				outputStream.println("Invoice: " + inv.getInvoiceCode());
-				outputStream.println(inv.getInvoiceDate());
-				outputStream.println("----------------------------------");
-				outputStream.println("Salesperson: " + aPerson.getName());
-				outputStream.println("Customer: ");
-				outputStream.println("           " + cust.getCustomerName() + " (" + cust.getCustomerCode() + ")");
-				outputStream.println("           " + cust.getType());
-				outputStream.println("           " + cust.getPerson().getName());
-				outputStream.println("           " + cust.getAddress().getStreet());
-				outputStream.println("           " + cust.getAddress().getCity() + "," + cust.getAddress().getState()
+				System.out.println("");
+				System.out.println("");
+				System.out.println("----------------------------------");
+				System.out.println("Invoice: " + inv.getInvoiceCode());
+				System.out.println(inv.getInvoiceDate());
+				System.out.println("----------------------------------");
+				System.out.println("Salesperson: " + aPerson.getName());
+				System.out.println("Customer: ");
+				System.out.println("           " + cust.getCustomerName() + " (" + cust.getCustomerCode() + ")");
+				System.out.println("           " + cust.getType());
+				System.out.println("           " + cust.getPerson().getName());
+				System.out.println("           " + cust.getAddress().getStreet());
+				System.out.println("           " + cust.getAddress().getCity() + "," + cust.getAddress().getState()
 						+ " " + cust.getAddress().getZip() + " " + cust.getAddress().getCountry());
-				outputStream.println("------------------------------------");
+				System.out.println("------------------------------------");
 
 				StringBuilder sum = new StringBuilder();
 				StringBuilder cop = new StringBuilder();
@@ -260,17 +256,17 @@ public class InvoiceReport {
 					nb.append(String.format("%n%-10s %-50s $%9.2f $%9.2f $%9.2f", ped.getProductCode(), ped.getItems(),
 							ped.getSubtotal(), (ped.getCustomerTax()), ped.getTotalFees()));
 				}
-				outputStream.println(nb);
-				outputStream.println(
+				System.out.println(nb);
+				System.out.println(
 						"                                                              =====================================");
 				sum.append(String.format("%-10s %-50s $%9.2f $%9.2f $%9.2f $%9.2f", "SUB-TOTALS", "      ", eq, sumTax,
 						feeSum, (eq + sumTax + feeSum)));
-				outputStream.println(sum);
+				System.out.println(sum);
 				cop.append(String.format("%-10s %-79s $%9.2f", "COMPLIANCE FEE", "", (cust.compliaceFee())));
-				outputStream.println(cop);
+				System.out.println(cop);
 				com.append(String.format("%-10s %-82s $%9.2f", "FINAL TOTAL", "",
 						(eq + sumTax + feeSum) + cust.compliaceFee()));
-				outputStream.println(com);
+				System.out.println(com);
 			}
 			outputStream.close();
 		} catch (FileNotFoundException e) {
