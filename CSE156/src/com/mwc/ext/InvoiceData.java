@@ -141,7 +141,6 @@ public class InvoiceData {
 		}
 		}
 	
-	
 	/**Method that removes every customer record from the database. 
 	 */
 	public static void removeAllCustomers() {
@@ -170,7 +169,6 @@ public class InvoiceData {
 			throw new RuntimeException(e);
 		}
 	}
-	
 	/**Method to add a customer record to the database with the provided data
 	 */
 	public static void addCustomer(String customerCode, String type, String primaryContactPersonCode, String name, 
@@ -262,17 +260,110 @@ public class InvoiceData {
 	 */
 	public static void addEquipment(String productCode, String name, Double pricePerUnit) {
 		//done
-	}
+		
+		Connection conn = DatabaseInfo.getConnection();
+		PreparedStatement ps;
+		ResultSet rs;
+		
+		String query = "SELECT * FROM products";
+		String insert = "INSERT INTO products (ProductCode, ProductType, Productname, ProductUnitPrice) VALUES(?,'E',?,?)";
+		
+		try{
+			ps = conn.prepareStatement(query);
+			rs = ps.executeQuery();
+			rs.next();
+			
+			ps = conn.prepareStatement(insert);
+			
+			ps.setString(1, productCode);
+			//ps.setString(2, ProductType);
+			ps.setString(2, name);
+			ps.setString(3, String.valueOf(pricePerUnit));
+			
+			ps.executeUpdate();
+			rs.next();
+			
+			conn.close();
+		}
+		catch(SQLException e){
+			System.out.println("SQLException: ");
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		}
+		
 
 	
 	/**Adds a service record to the database with the provided data.
 	 */
 	public static void addService(String productCode, String name, double activationFee, double annualFee) {
+	
+		Connection conn = DatabaseInfo.getConnection();
+		PreparedStatement ps;
+		ResultSet rs;
+		
+		String query = "SELECT * FROM products";
+		String insert = "INSERT INTO products (ProductCode, ProductType, Productname, ProductSetUp, ProductUnitPrice) VALUES(?,'S',?,?,?)";
+		
+		try{
+			ps = conn.prepareStatement(query);
+			rs = ps.executeQuery();
+			rs.next();
+			
+			ps = conn.prepareStatement(insert);
+			
+			ps.setString(1, productCode);
+			
+			ps.setString(2, name);
+			ps.setString(3, String.valueOf(activationFee));
+			ps.setString(4, String.valueOf(annualFee));
+			
+			ps.executeUpdate();
+			rs.next();
+			
+			conn.close();
+		}
+		catch(SQLException e){
+			System.out.println("SQLException: ");
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
 	}
 	
 	/**Adds an consultation record to the database with the provided data.
 	 */
 	public static void addConsultation(String productCode, String name, String consultantPersonCode, Double hourlyFee) {
+		String query = "SELECT * FROM products";
+		String insert = "INSERT INTO products (ProductCode, ProductType, Productname, ProductUnitPrice, personCode) VALUES(?,'C',?,?,?)";
+		Connection conn = DatabaseInfo.getConnection();
+		PreparedStatement ps;
+		ResultSet rs;
+		
+		try{
+			ps = conn.prepareStatement(query);
+			rs = ps.executeQuery();
+			rs.next();
+			
+			ps = conn.prepareStatement(insert);
+			
+			ps.setString(1, productCode);
+			
+			ps.setString(2, name);
+			ps.setString(3, String.valueOf(hourlyFee));
+			ps.setString(4, String.valueOf(consultantPersonCode));
+			
+			ps.executeUpdate();
+			rs.next();
+			
+			conn.close();
+		}
+		catch(SQLException e){
+			System.out.println("SQLException: ");
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
 	}
 	
 	/**Removes all invoice records from the database. 
@@ -381,7 +472,38 @@ public class InvoiceData {
 	 * begin/end dates)
 	 */
 	public static void addServiceToInvoice(String invoiceCode, String productCode, String startDate, String endDate) {
+		Connection conn = DatabaseInfo.getConnection();
+		PreparedStatement ps;
+		ResultSet rs;
+		
+		String query = "SELECT * FROM InvoiceProducts";
+		String insert = "INSERT INTO InvoiceProducts (ProductCode, InvoiceNum,StartTime, EndTime) VALUES(?,?,?,?)";
+		//String make = "'CREATE TABLE `rgallagher`.`"+invoiceCode+"` (`InvoiceNum` VARCHAR(45) NOT NULL COMMENT '',`ProductCode` VARCHAR(45) NULL COMMENT '',`ProductAmount` VARCHAR(45) NULL COMMENT '',`TimeFrame` VARCHAR(45) NULL COMMENT '', PRIMARY KEY (`InvoiceNum`)  COMMENT '');'";
+		try{
+			ps = conn.prepareStatement(query);
+			rs = ps.executeQuery();
+			rs.next();
+			
+			ps = conn.prepareStatement(insert);
+			
+			ps.setString(1, productCode);
+			ps.setString(2, invoiceCode);
+			ps.setString(3, startDate);
+			ps.setString(4, endDate);
+			
+			ps.executeUpdate();
+			rs.next();
+			
+			conn.close();
 		}
+		catch(SQLException e){
+			System.out.println("SQLException: ");
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+	
+	}
 
 	/**Adds a particular consultation (corresponding to productCode to an 
 	 * invoice corresponding to the provided invoiceCode with the given
@@ -389,4 +511,40 @@ public class InvoiceData {
 	 */
 	public static void addConsultationToInvoice(String invoiceCode, String productCode, double numHours) {
 		}
+//	Connection conn = DatabaseInfo.getConnection();
+//	PreparedStatement ps;
+//	ResultSet rs;
+//	
+//	String query = "SELECT * FROM InvoiceProducts";
+//	String insert = "INSERT INTO InvoiceProducts (ProductCode, InvoiceNum,StartTime, EndTime) VALUES(?,?,?,?)";
+//	String make = "'CREATE TABLE `rgallagher`.`"+invoiceCode+"` (`InvoiceNum` VARCHAR(45) NOT NULL COMMENT '',`ProductCode` VARCHAR(45) NULL COMMENT '',`ProductAmount` VARCHAR(45) NULL COMMENT '',`TimeFrame` VARCHAR(45) NULL COMMENT '', PRIMARY KEY (`InvoiceNum`)  COMMENT '');'";
+//	//InvoiceNum,StartTime, EndTime) VALUES(?,?,?,?)";
+//	//String make = "'CREATE TABLE `rgallagher`.`"+invoiceCode+"` (`InvoiceNum` VARCHAR(45) NOT NULL COMMENT '',`ProductCode` VARCHAR(45) NULL COMMENT '',`ProductAmount` VARCHAR(45) NULL COMMENT '',`TimeFrame` VARCHAR(45) NULL COMMENT '', PRIMARY KEY (`InvoiceNum`)  COMMENT '');'";
+//
+//	try{
+//		ps = conn.prepareStatement(query);
+//		rs = ps.executeQuery();
+//		rs.next();
+//		
+//		ps = conn.prepareStatement(insert);
+//		
+//		ps.setString(1, invoiceCode);
+//		ps.setString(2, productCode);
+//		ps.setString(3, productCode);
+//		ps.setString(4, String.valueOf(numHours));
+//		
+//		ps.executeUpdate();
+//		rs.next();
+//		
+//		conn.close();
+//	}
+//	catch(SQLException e){
+//		System.out.println("SQLException: ");
+//		e.printStackTrace();
+//		throw new RuntimeException(e);
+//	
+//}
+//}
+	
 }
+

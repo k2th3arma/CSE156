@@ -1,23 +1,26 @@
 package com.output;
 
 
-	/*
+	import java.util.List;
+
+/*
 	 * MWC program
 	 * ---designed and built by Ronnie Gallagher and Jacob Reis
 	 * Description: 
 	 * 	The program reads data files and outputs the data collected into Json and XML formatted documents
 	 */
 
-	import java.util.List;
+	//import java.util.List;
 
 	import com.data.Customer;
 	import com.data.Invoice;
+	import com.data.ObjectList;
 	import com.data.Person;
 	import com.data.Product;
 	import com.fileReader.FileReader;
 	import com.fileWriter.JsonWriter;
 	import com.fileWriter.XMLWriter;
-import com.mwc.ext.InvoiceData;
+	import com.mwc.ext.InvoiceData;
 
 	public class DataTransfer {
 

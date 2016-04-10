@@ -3,9 +3,11 @@ package com.fileWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.Iterator;
 import java.util.List;
 
 import com.data.Customer;
+import com.data.ObjectList;
 import com.data.Person;
 import com.data.Product;
 import com.thoughtworks.xstream.XStream;
@@ -28,6 +30,15 @@ public class XMLWriter {
 		xmlPrintWriter.write("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
 		
 		xstream.alias("Person", Person.class); 
+		
+//		Person pers = null;
+//		
+//		Iterator<Person> itr = persons.iterator();
+//		while(itr.hasNext()){
+//			String personOutput = xstream.toXML(pers);
+//			xmlPrintWriter.write(personOutput);
+//		}
+		
 		for(Person aPerson : persons) {
 			String personOutput = xstream.toXML(aPerson);
 			xmlPrintWriter.write(personOutput);

@@ -3,8 +3,9 @@ package com.fileWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.Iterator;
 import java.util.List;
-
+import com.data.ObjectList;
 import com.data.Customer;
 import com.data.Person;
 import com.data.Product;
@@ -25,8 +26,16 @@ public class JsonWriter {
 			jsonPrintWriter = new PrintWriter(jsonOutput);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		} 
+		}
+
+//		Person pers = null;
 		
+//		Iterator<Person> itr = persons.iterator();
+//		while(itr.hasNext()){
+//			String personOutput = gson.toJson(pers); 
+//			jsonPrintWriter.write(personOutput + "\n");
+//		}
+
 		for(Person aPerson : persons) {
 			String personOutput = gson.toJson(aPerson); 
 			jsonPrintWriter.write(personOutput + "\n");

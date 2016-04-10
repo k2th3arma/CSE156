@@ -1,6 +1,7 @@
 package com.data;
 
-public class Person  {
+
+public class Person {
 	private String personCode;
 	private String lastName;
 	private String firstName;

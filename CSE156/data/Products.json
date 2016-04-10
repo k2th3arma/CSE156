@@ -21,6 +21,7 @@
 }
 {
   "activationFee": "35000",
+  "annualFee": "400",
   "numdays": 0,
   "DAYS": 0,
   "productCode": "3294",

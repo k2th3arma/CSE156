@@ -24,6 +24,7 @@
   <productName>L2 Home Security</productName>
   <productType>S</productType>
   <activationFee>35000</activationFee>
+  <annualFee>400</annualFee>
   <numdays>0</numdays>
   <DAYS>0</DAYS>
 </com.data.Service><com.data.Service>

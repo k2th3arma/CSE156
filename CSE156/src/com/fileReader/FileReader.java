@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import com.data.Address;
 import com.data.Business;
@@ -12,9 +13,9 @@ import com.data.Consultant;
 import com.data.Customer;
 import com.data.Equipment;
 import com.data.Invoice;
-import com.data.DataCollection;
+//import com.data.DataCollection;
 import com.data.Person;
-import com.data.PersonList;
+import com.data.ObjectList;
 import com.data.Product;
 import com.data.Residential;
 import com.data.Service;
@@ -27,16 +28,19 @@ public class FileReader {
 	
 	//File Reader for the person profile
 	public ArrayList<Person> readPersons() {
+	//public ObjectList readPersons() {
 
-		//ArrayList<Person> personList = null;
-		ArrayList<Person> p = null;
+		ArrayList<Person> personList = null;
+		//ObjectList<Person> personList = null;
 		
 		String query = "select * from person join Email on person.PersonCode=Email.PersonCode join Address on person.PersonCode=Address.PersonCode";
 		Connection conn = DatabaseInfo.getConnection();
 		
 		try
 		{
-			//personList = new ArrayList<Person>();
+			personList = new ArrayList<Person>();
+			//personList = new ObjectList<Person>();
+
 			PreparedStatement ps = conn.prepareStatement(query);
 			
 			ResultSet rs = ps.executeQuery();
@@ -52,7 +56,9 @@ public class FileReader {
 
 			Person a = new Person(rs.getString("personCode"),rs.getString("FirstName"),rs.getString("LastName"),address, email);
 			
-			p.add(a);
+			personList.add(a);
+			//p.addToStart(a);
+
 			}
 			conn.close();
 
@@ -64,7 +70,8 @@ public class FileReader {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
-		return p;
+		return personList;
+		//return p;
 	}
 
 	//File Reader for the customer profile
@@ -90,7 +97,7 @@ public class FileReader {
 			Address address = new Address(rs.getString("street"),rs.getString("city"),rs.getString("state"),rs.getString("zip"),rs.getString("country"));
 			
 			ArrayList<Person> persons = readPersons();
-			//PersonList persons = readPersons();
+			//ObjectList<Person> persons = readPersons();
 
 			for(Person pers: persons){
 			if(pers.getPersonCode().equals(rs.getString("PersonCode"))){
@@ -167,6 +174,17 @@ public class FileReader {
 				 
 				 break;
 			case "C":
+				
+//				ObjectList<Person> persons = readPersons();
+//				Person pers;
+//				
+//				Iterator<Person> itr = persons.iterator();
+//				while(itr.hasNext()){
+//					if(pers.getPersonCode().equals(rs.getString("PersonCode"))){
+//						person = pers;
+//					}
+//				}
+
  
 				 ArrayList<Person> persons = readPersons();
 			   	 
@@ -200,9 +218,6 @@ public class FileReader {
 	public ArrayList<Invoice> readInvoice() {
 
 		ArrayList<Invoice> invoiceList = null;
-		Equipment equipment 		= null;
-		Service service			 	= null;
-		Consultant consultation 	= null;
 		Person person 				= null;
 		
 		String query = "select * from invoice join InvoiceProducts on invoice.InvoiceNum=InvoiceProducts.InvoiceNum";
@@ -253,6 +268,17 @@ public class FileReader {
 			 }
 			 
 				
+//				ObjectList<Person> persons = readPersons();
+//				Person pers = null;
+//				
+//				Iterator<Person> itr = persons.iterator();
+//				while(itr.hasNext()){
+//					if(pers.getPersonCode().equals(rs.getString("PersonCode"))){
+//						person = pers;
+//					}
+//				}
+
+				
 			ArrayList<Person> persons = readPersons();
 		   	 
 			for(Person pers: persons){
@@ -260,6 +286,7 @@ public class FileReader {
 					person = pers;
 				}
 			}
+			
 			Invoice invoice = new Invoice(rs.getString("InvoiceNum"),rs.getString("InvoiceCustomer"), rs.getString("invoiceDate"), person, invoiceProduct);
 		
 			invoiceList.add(invoice);
